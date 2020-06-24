@@ -4,6 +4,7 @@ export default {
     name: 'emailList',
     template: `
         <ul  class="mails-list">
+           <!-- לשנות לפריויו -->
             <email-details  class="mails" v-for="mail in mails" :mail="mail"  />
         </ul>
       `,

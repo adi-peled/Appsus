@@ -1,23 +1,25 @@
-
-
-
-body{
-    background-color: rgb(149, 223, 198);
+body {
+    background-color: white;
 }
-.app-header{
+
+.app-header {
     text-align: center;
-    font-size: 50px;
-    background-color: aquamarine;
+    font-size: 20px;
+    background-color: white;
 }
 
-
-footer{
-    background-color: aquamarine;
-    height: 100px;
-    font-size: 40px;
+footer {
+    background-color: white;
+    font-size: 30px;
     text-align: center;
 }
 
-.flex{
+.flex {
     display: flex;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
 }

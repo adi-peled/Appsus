@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: whitesmoke;
+    font-size: 40px;
+    align-items: center;
+}
+
+.main-header input {
+    height: 50%;
+    width: 30%;
+    text-align: center;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 30px;
+    height: 100vh;
+}
+
+.side-bar button {
+    outline: none;
+    border: rgb(64, 147, 224) 1px solid;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    width: 50%;
+    height: 60px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.main {
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mails-list {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.mails {
+    cursor: pointer;
+    color: rgb(64, 147, 224);
+    border-radius: 30px;
+    border: rgb(236, 236, 236) 1px solid;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(236, 236, 236);
+}
+
+.mails:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.read {
+    background-color: whitesmoke;
+}
