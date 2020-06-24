@@ -1,5 +1,5 @@
-import  bookApp from  './pages/book-app.cmp.js';
-import  appHeader from  './cmps/app-header.cmp.js';
+// import  bookApp from  './pages/book-app.cmp.js';
+import  appHeader from  './main-cmps/app-header.cmp.js';
 
 import {myRouter} from './routes.js'
 
@@ -12,7 +12,7 @@ new Vue({
     <main>
         <router-view />
     </main>
-    <footer>
+    <footer>  
        Footer
     </footer>
 
@@ -22,7 +22,7 @@ new Vue({
     methods:{
     },
     components: {
-      bookApp,
+      // bookApp,
       appHeader
     },
 })

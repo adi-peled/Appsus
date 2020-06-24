@@ -23,6 +23,3 @@ export default {
   },
 };
 
-// Allow the user to filter the books list by name and by price range
-// • Emits: filtered with a filterBy object: {byName: 'xx', fromPrice:0, toPrice:Infinity}
-// • Emits the current filter when Filter button is clicked
