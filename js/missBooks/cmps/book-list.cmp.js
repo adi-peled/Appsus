@@ -1,6 +1,7 @@
 import      bookPreview from     "./book-preview.cmp.js";
 
 export default {
+  name:'book-list',
   props: ["books"],
   template: `
 <div class="book-list">
