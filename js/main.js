@@ -1,12 +1,13 @@
-// import  bookApp from  './pages/book-app.cmp.js';
-import  appHeader from  './main-cmps/app-header.cmp.js';
+import appHeader from './main-cmps/app-header.cmp.js';
+// import Utils from './main-services/utils'
+// import {eventBus} from '../../main-services/eventBus.js';
 
-import {myRouter} from './routes.js'
+import { myRouter } from './routes.js'
 
 new Vue({
-    el:'#app',
-    router: myRouter,
-    template:`
+  el: '#app',
+  router: myRouter,
+  template: `
     <section>
     <app-header>  </app-header>
     <main>
@@ -19,10 +20,9 @@ new Vue({
 
     </section>
     `,
-    methods:{
-    },
-    components: {
-      // bookApp,
-      appHeader
-    },
+  methods: {
+  },
+  components: {
+    appHeader
+  },
 })

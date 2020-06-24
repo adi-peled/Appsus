@@ -1,5 +1,5 @@
 import { bookService } from "../services/book.service.js";
-import {eventBus} from '../services/event-bus.service.js';
+import {eventBus} from '../../main-services/eventBus.js';
 
 export default {
     props: ['book'],

@@ -1,4 +1,4 @@
-import {eventBus} from '../services/event-bus.service.js';
+import {eventBus} from '../../main-services/eventBus.js';
 
 export default {
     name: 'user-msg',
