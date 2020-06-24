@@ -1,0 +1,33 @@
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.book-details{
+    text-align: center;
+    text-transform: capitalize;
+    background-color: aquamarine;
+}
+.title{
+font-size: 45px;
+margin: 0;
+border-bottom: aqua 2px solid;
+}
+.subtitle{
+    font-size: 35px;
+    margin: 0;
+
+}
+.authors{
+    font-size: 25px;
+}
+.price{
+    font-size: 30px;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
+

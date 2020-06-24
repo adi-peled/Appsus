@@ -1,0 +1,16 @@
+
+.book-preview{
+background-color: aqua;
+height: 250px;
+width: 150px;
+border: aquamarine 3px solid;
+text-transform: capitalize;
+}
+
+
+
+.book-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,150px);
+    gap: 15px;
+}

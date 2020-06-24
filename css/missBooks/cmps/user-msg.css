@@ -1,0 +1,11 @@
+
+
+.user-msg{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 80px;
+    background-color: cadetblue;
+}
