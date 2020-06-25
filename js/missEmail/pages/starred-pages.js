@@ -1,10 +1,12 @@
-import emailPreview from './email-preview.cmp.js'
+import emailPreview from '../cmps/email-preview.cmp.js'
+import sideBar from '../cmps/side-bar.cmp.js'
 import { emailsService } from '../services/emails-service.js'
 export default {
-    name: 'emailList',
+    name: 'starred',
     template: `
         <ul  class="mails-list">
-            <email-preview  class="mails" v-for="mail in mails" :mail="mail" />
+           
+asdsadערגעגע
         </ul>
       `,
     data() {
@@ -24,6 +26,7 @@ export default {
 
     },
     components: {
-        emailPreview
+        emailPreview,
+        sideBar
     }
 };

@@ -3,8 +3,9 @@ export default {
     template: `
         <section class="side-bar">
             <button @click="">New Mail</button>
-           <p>inbox</p>
-           <p>starred</p>
+            <router-link to="/email/inbox">Inbox</router-link>
+            <router-link to="/email/starred">Starred</router-link>
+
            <p>sent mail</p>
            <p>drafts</p>
         </section>

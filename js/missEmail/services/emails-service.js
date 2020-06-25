@@ -1,254 +1,50 @@
-export const mailService = {
-    getUnReadAmount
-}
+export const emailsService = {
 
-function getUnReadAmount() {
-    var count = 0;
-    mails.forEach(mail => {
-        if (mail.isRead === true) count++;
-    })
-    return count
+    getEmails,
+
 
 }
 
-mails = [{
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
+function getEmails() {
+
+    return Promise.resolve(emails)
+}
+
+
+
+var emails = [{
+    from: 'Roee',
+    fromMail: 'roee@maor&adi.com',
+    subject: 'Need to talk ASAP!!',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     isRead: false,
     sentAt: new Date()
 }, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
+    from: 'Nir',
+    fromMail: 'nir@maor&adi.com',
+    subject: 'Haha last night was litt!',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     isRead: false,
     sentAt: new Date()
 }, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
+    from: 'Shir',
+    fromMail: 'shir@maor&adi.com',
+    subject: 'hi man what up ',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     isRead: false,
     sentAt: new Date()
 }, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
+    from: 'Ron',
+    fromMail: 'ron@maor&adi.com',
+    subject: 'dude you good?',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     isRead: false,
     sentAt: new Date()
 }, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
+    from: 'Sean',
+    fromMail: 'sean@maor&adi.com',
+    subject: 'cant beleive you did that !',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     isRead: false,
     sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: true,
-    sentAt: new Date()
-}, {
-    subject: 'subject',
-    body: 'body',
-    isRead: false,
-    sentAt: new Date()
-}]
+}, ]

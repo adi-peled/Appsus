@@ -1,0 +1,14 @@
+.main-header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: whitesmoke;
+    font-size: 40px;
+    align-items: center;
+}
+
+.main-header input {
+    height: 50%;
+    width: 30%;
+    text-align: center;
+}

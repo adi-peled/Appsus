@@ -1,0 +1,8 @@
+.small-mail {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.read {
+    background-color: whitesmoke;
+}

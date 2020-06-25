@@ -10,7 +10,7 @@ export default {
                  <email-header/>
                 <div class="middle">
                     <side-bar/>
-                    <email-list/>
+                    <router-view></router-view>
                 </div>
             </div>
         </section>

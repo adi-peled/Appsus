@@ -1,0 +1,10 @@
+.main {
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle {
+    display: flex;
+    justify-content: space-between;
+}
