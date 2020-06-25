@@ -1,14 +1,17 @@
+import { emailsService } from '../services/emails-service.js'
+import { Utils } from '../../main-services/utils.js';
+
 export default {
-    props: ['mail'],
+    props: ['mail', 'idx'],
     name: 'emailPreviews',
     template: `
         <section  :class="{read : mail.isRead}" >
-        <div class="small-mail" @click="mailClicked">
-            <p>{{mail.from}}:</p><p><span>{{mail.subject}} </span> - {{text}}</p><p>Sent At : {{hour}}:{{minutes}}</p>
+        <div class="small-mail" @click="mailClicked(mail.id)">
+            <p>{{mail.from}}:</p><p><span>{{mail.subject}} </span> - {{text}}</p><p>Sent At : {{hour}}:{{minutes}}</p><span @click.stop="onDeleteMail(mail.id)">🗑️</span><span v-if="!mail.isSent" @click.stop="starClicked" :class="{starred : mail.isStarred}">★</span>
         </div>    
             <div v-if="isClicked">
                 <h3>{{mail.subject}}</h3>
-                <span>{{mail.from}} </span> <{{mail.fromMail}}>
+                <span>{{mail.from}} </span> <{{mail.fromMail}}> 
                 <p>{{mail.body}}</p>
             </div>
         </section>
@@ -26,21 +29,23 @@ export default {
             this.text = this.mail.body.substring(0, 30)
             this.text += '...'
         }
-        // var month = this.mail.sentAt.getMonth()
-        // var day = this.mail.sentAt.getDay()
-        // var year = this.mail.sentAt.getFullYear()
-        this.hour = this.mail.sentAt.getHours()
-        this.minutes = this.mail.sentAt.getMinutes()
-            // var seconds = this.mail.sentAt.getSeconds()
-
-
+        this.hour = new Date(this.mail.sentAt).getHours()
+        this.minutes = new Date(this.mail.sentAt).getMinutes()
     },
     methods: {
-        mailClicked() {
+        mailClicked(id) {
             this.isClicked = !this.isClicked;
             this.mail.isRead = true
+            emailsService.mailRead(id)
+
+        },
+        onDeleteMail(id) {
+            emailsService.deleteMail(id)
+            this.$emit("emailDeleted");
+        },
+        starClicked() {
+            emailsService.newStarredList(this.mail.id)
+            this.$emit("emailDeleted");
         }
-
     }
-
 };
