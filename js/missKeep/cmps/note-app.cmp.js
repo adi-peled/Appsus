@@ -11,52 +11,54 @@ import { noteService } from '../services/note-service.js'
 export default {
     name: 'note-app',
     template: `
-    <section>
-    <note-filter @filter="setFilter"  @focus="print"   > </note-filter>
+    <section  class="note-app"  >
+    <note-filter @filter="setFilter"> </note-filter>
        <div>
-            choose type of note:
-            <button @click="chooseType('text')">text note</button>
-            <button @click="chooseType('img')">image note</button>
-            <button @click="chooseType('list')">list note</button>
-            <button @click="chooseType('video')">video note</button>
+           create new note :
+            <button   class="btn-new-note"     @click="chooseType('noteText')">text note</button>
+            <button   class="btn-new-note" @click="chooseType('noteImg')">image note</button>
+            <button   class="btn-new-note" @click="chooseType('noteTodos')">list note</button>
+            <button  class="btn-new-note" @click="chooseType('video')">video note</button>
       </div>
-          <note-text @setVal="setNote" v-if="(noteType==='text')"> </note-text>
-          <note-img    @setVal="setNote"   v-if="(noteType==='img')"> </note-img>
-          <note-todos     @setVal="setNote" v-if="(noteType==='list')"> </note-todos>
+          <note-text @setVal="setNote" v-if="(newCurrNote.type==='noteText')"> </note-text>
+          <note-img    @setVal="setNote"   v-if="(noteType==='noteImg')"> </note-img>
+          <note-todos     @setVal="setNote" v-if="(noteType==='noteTodos')"> </note-todos>
           <button @click="saveNote">save</button>
-          <note-list :notes="notesToShow"> </note-list>
+          <note-list :notes="notesToShow"  @noteSelected="setCurrNote"     > </note-list>
   </section>  
     `,
     data() {
         return {
             notes: [],
             noteType: '',
-            filterByType: ''
-
-
+            filterByType: '',
+            currNote: null,
+            newCurrNote: {}
         }
     },
     methods: {
         chooseType(type) {
             this.noteType = type
+            this.newCurrNote.type = type
         },
         saveNote() {
-            noteService.addNote(this.info, this.noteType)
+            noteService.addNote(this.newCurrNote)
         },
-        setNote(info,event) {
-            this.info = info
-            if(!event) return
-            this.info.imgObj=event
+        setNote(info, event) {
+            this.newCurrNote.info = info
+            if (!event) return
+            this.info.imgObj = event
         },
         setFilter(filterByType) {
             this.filterByType = filterByType;
         },
-        print() {
-            console.log('focus')
+        setCurrNote(note) {
+            this.currNote = note;
         }
     },
     computed: {
         notesToShow() {
+            console.log(this.notes)
             if (!this.filterByType) return this.notes
             let filterdNotes = this.notes.filter((note) => {
                 console.log(note.type)
@@ -65,8 +67,14 @@ export default {
             return filterdNotes
         },
     },
+
     created() {
-        this.notes = noteService.getNotes()
+        noteService.getNotes()
+            .then(notes => {
+                this.notes = notes
+                console.log(this.notes)
+            })
+
     },
     components: {
         noteText,

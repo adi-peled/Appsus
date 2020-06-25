@@ -1,11 +1,13 @@
 export default {
   template: `
           <section class="note-filter">
-              <h2>types list</h2>
-              <button  @click="filter('noteTodos')"  > only lists   </button> 
-              <button   @click="filter('noteText')" > only text   </button> 
-              <button   @click="filter('noteImg')" > only images   </button> 
-           
+              <h2  class="title-filter">    notes type   </h2>
+              <div  class="btns-filter" >
+              <button class="btn-filter" @click="filter('')"  > all lists   </button> 
+              <button class="btn-filter" @click="filter('noteTodos')"  > only lists   </button> 
+              <button class="btn-filter"  @click="filter('noteText')" > only text   </button> 
+              <button class="btn-filter"  @click="filter('noteImg')" > only images   </button> 
+              </div>
           </section>
       `,
   data() {

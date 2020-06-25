@@ -104,9 +104,6 @@ export default {
       this.loadBook();
     }
   },
-
-
-
   components: {
     longText,
     reviewAdd,

@@ -1,12 +1,17 @@
-@import './cmps/note-storage.css';
-
-
-
+@import './cmps/note-list.css';
+@import './cmps/note-edit.css';
+@import './cmps/note-app.css';
+@import './cmps/note-filter.css';
 
 
 
 
 
 button{
-    cursor: pointer;
+cursor: pointer;
+border-radius: 15px;
+
+}
+button:hover{
+    background-color: lightgrey;
 }

@@ -3,24 +3,35 @@ import noteText from './note-text.cmp.js'
 import noteTodos from './note-todos.cmp.js'
 import noteImg from './note-img.cmp.js'
 export default {
-props:['notes'],
+    props: ['notes'],
     name: 'note-list',
     template: `
-    <section    class="note-storage">
-<component class="note-card" :is="note.type" v-for="note in notes"  :info="note.info">  </component>
-    </section>    
+    <section @click="console"   class="note-list">
+<component class="note-card" 
+        :is="note.type" v-for="(note,idx) in notes "  :key="note.info.id"  
+        :idx="idx"  :info="note.info"> 
+</component>
+</section>    
     `,
     data() {
         return {
-        
+
         }
     },
     methods: {
-       
+        selectNote(note) {
+            console.log(note)
+            this.$emit('noteSelected', note)
+        },
+        console() {
+            console.log(this.notes)
+
+        }
+
     },
-    created() {
-        console.log('created',this.notes)
+    computed: {
     },
+
     components: {
         noteText,
         noteImg,

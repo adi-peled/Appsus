@@ -1,0 +1,18 @@
+
+
+.note-app{
+  background-color: antiquewhite;
+    min-height: 500px;
+}
+.on-modal-open{
+    background-color: lightgray;
+    opacity: 0.4;
+}
+
+
+
+.btn-new-note{
+
+width: 100px;
+
+}

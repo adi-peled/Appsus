@@ -1,51 +1,60 @@
+import { Utils } from "../../main-services/utils.js";
+
 export const noteService = {
     getNotes,
-    addNote
+    addNote,
+    deleteNote
 }
 
 function getNotes() {
 
-    return gNotes
-}
-
-
-
-function addNote(info, type) {
-    console.log(type)
-    switch (type) {
-        case 'text':
-            console.log(info)
-
-            gNotes.push({ type: 'noteText', isPinned: false, info: { txt: info } })
-            break;
-        case 'list':
-
-
-            gNotes.push({
-                type: 'noteTodos', isPinned: false,
-
-                info: {
-
-                    // todos: [{ txt: info.txt1, isDone: info.check1 },
-                    // { txt: info.txt2, isDone: info.check2 }]
-                }
-            })
-            break
-        case 'img':
-            console.log(info)
-            gNotes.push({ type: 'noteImg', isPinned: false, info: { title: info.title, url: info.objImg } })
-            break
+    if (!Utils.loadFromStorage('notes')) {
+        Utils.storeToStorage('notes', gNotes)
+    } else {
+        gNotes = Utils.loadFromStorage('notes')
+        console.log(gNotes)
     }
-
+    return Promise.resolve(gNotes);
 
 }
 
+function addNote(newNote) {
+    // switch (type) {
+    //     case 'text':
+    //         gNotes.push({ type: 'noteText', isPinned: false, info: { txt: info } })
+    //         break;
+    //     case 'list':
+    //         gNotes.push({
+    //             type: 'noteTodos', isPinned: false,
+    //             info: {
+    //                 todos: [{ txt: info.txts[0], isDone: info.checks[0] },
+    //                 { txt: info.txts[1], isDone: info.checks[1] }]
+    //             }
+    //         })
+    //         break
+    //     case 'img':
+    //         console.log(info)
+    //         gNotes.push({ type: 'noteImg', isPinned: false, info: { title: info.title, url: info.objImg } })
+    //         break
+    // }
+    console.log(newNote)
+    gNotes.push(newNote)
+    console.log(gNotes)
+    Utils.storeToStorage('notes', gNotes)
+}
 
+function deleteNote(idx) {
+    console.log(idx)
+    gNotes.splice(idx, 1)
+    // Utils.storeToStorage('notes', gNotes)
+
+}
 
 
 var gNotes = [
     {
         type: "noteTodos",
+        isPinned: false,
         info: {
             todos: [
                 { txt: "clean my room", isDone: false },
@@ -55,6 +64,8 @@ var gNotes = [
     },
     {
         type: "noteTodos",
+        isPinned: false,
+
         info: {
             todos: [
                 { txt: "take out the dog", isDone: false },
@@ -71,9 +82,21 @@ var gNotes = [
     },
     {
         type: "noteImg",
+        isPinned: false,
         info: {
             url: "./img/1.png",
             title: "orange monster"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {
+        type: "noteImg",
+        isPinned: false,
+        info: {
+            url: "./img/2.png",
+            title: "purple monster"
         },
         style: {
             backgroundColor: "#00d"

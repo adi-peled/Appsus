@@ -1,0 +1,16 @@
+.note-card{
+    background-color:rgb(245, 203, 148);
+    height: 150px;
+    width: 150px;
+    border: rgb(245, 187, 100) 1px solid;
+}
+
+
+.note-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,150px);
+    gap:10px
+}
+
+
+

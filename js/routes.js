@@ -5,37 +5,39 @@ import emailApp from './missEmail/cmps/email-app.cmp.js';
 import noteApp from './missKeep/cmps/note-app.cmp.js';
 import emailStarred from './missEmail/pages/starred-pages.js';
 import emailList from './missEmail/cmps/email-list.cmp.js';
+import noteEdit from './missKeep/cmps/note-edit.cmp.js'
 
 const myRoutes = [{
-        path: '/',
-        component: homePage
-    },
-    {
-        path: '/note',
-        component: noteApp
-    },
-    {
-        path: '/email',
-        component: emailApp,
-        children: [{
+    path: '/',
+    component: homePage
+},
+{
+    path: '/note',
+    component: noteApp
+},
 
-                path: '/email/starred',
-                component: emailStarred
-            },
-            {
-                path: '/email/inbox',
-                component: emailList
-            }
-        ]
+{
+    path: '/email',
+    component: emailApp,
+    children: [{
+
+        path: '/email/starred',
+        component: emailStarred
     },
     {
-        path: '/book',
-        component: bookApp
-    },
-    {
-        path: '/book/:bookId',
-        component: bookDetails
-    },
+        path: '/email/inbox',
+        component: emailList
+    }
+    ]
+},
+{
+    path: '/book',
+    component: bookApp
+},
+{
+    path: '/book/:bookId',
+    component: bookDetails
+},
 ];
 
 export const myRouter = new VueRouter({ routes: myRoutes })
