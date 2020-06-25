@@ -12,9 +12,9 @@
     border: rgb(236, 236, 236) 1px solid;
     padding: 20px;
     margin: 20px;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(216, 216, 216);
 }
 
 .mails:hover {
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(212, 208, 208);
 }

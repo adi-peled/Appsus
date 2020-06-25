@@ -1,5 +1,3 @@
-
-
 export const Utils = {
     storeToStorage,
     loadFromStorage,
@@ -10,6 +8,7 @@ export const Utils = {
 function storeToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value) || null);
 }
+
 function loadFromStorage(key) {
     let data = localStorage.getItem(key);
     return (data) ? JSON.parse(data) : undefined;
@@ -24,7 +23,7 @@ function getRandomId() {
 }
 
 function getRandomInt(num1, num2) {
-    var max = (num1 >= num2)? num1+1 : num2+1;
-    var min = (num1 <= num2)? num1 : num2;
-    return (Math.floor(Math.random()*(max - min)) + min);
+    var max = (num1 >= num2) ? num1 + 1 : num2 + 1;
+    var min = (num1 <= num2) ? num1 : num2;
+    return (Math.floor(Math.random() * (max - min)) + min);
 }
