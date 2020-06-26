@@ -1,39 +1,72 @@
 import { noteService } from "../services/note-service.js"
+import { Utils } from "../../main-services/utils.js"
 
 export default {
   props: ['info', 'idx'],
   name: 'note-todos',
   template: `
     <section class="note-todos">
-      <ul v-if="info">
-        <li v-for="todo in  info.todos">
-          <input type="checkbox" v-model="todo.isDone" /> {{todo.txt}} 
+
+      <ul  v-if="info"  class="todos-container"  :style="{backgroundColor:bgc}" >
+     
+        <li v-for="(todo,idx) in  info.todos"   :class="{done:info.todos[idx].isDone}"      @click="done(idx)"   >
+             {{todo.txt}}  {{info.todos[idx].isDone}}
         </li>
   <button class="btn-delete" @click="deleteNote">  delete  </button>
-
-      </ul>
-      <ul v-else   @change="setNote">
-        <li ><input type="checkbox" v-model="data.checks[0]"/> <input v-model="data.txts[0]" type="text" /></li>
-        <li ><input type="checkbox" v-model="data.checks[1]"/> <input v-model="data.txts[1]" type="text" /></li>
+  <input  v-model="bgc"  type="color">   {{bgc}} </input>
       </ul>
 
+      <ul v-else     @change="setNote">
+        <li v-for="(num,idx) in listLength" >
+               <input   v-model="inf.todos[idx].txt" type="text" />
+        </li>
+        <button v-if="checkListLength"   @click="updateLength(1,idx)"> + </button>
+        <button   v-if="checkListLength" @click="updateLength(-1,idx)"> - </button>
+
+      </ul>
+      
     </section> 
     `,
   data() {
     return {
-      data: {
-        txts: [],
-        checks: []
-      }
+      listLength: 1,
+      inf: {
+        todos: [{ txt: '', isDone: '' }]
+      },
+      bgc: '',
+
+
     }
+  },
+  created() {
   },
   methods: {
     setNote() {
-      this.$emit('setVal', this.data)
+      if (!this.listLength) return
+      this.$emit('setVal', this.inf)
     },
     deleteNote() {
       noteService.deleteNote(this.idx)
+    },
+    done(idx) {
+      console.log(this.info.todos[idx].isDone)
+        this.info.todos[idx].isDone = !this.info.todos[idx].isDone
+    },
+    updateLength(diff) {
+      if (diff === 1) {
+        this.inf.todos.push({ txt: '', isDone: '' })
+        return this.listLength += diff
+      }
+      if (diff === -1) {
+        this.inf.todos.splice(this.listLength, 1)
+        return this.listLength += diff
+      }
     }
   },
+  computed: {
+    checkListLength() {
+      return this.listLength
+    }
+  }
 
 }

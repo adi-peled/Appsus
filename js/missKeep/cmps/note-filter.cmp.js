@@ -8,17 +8,27 @@ export default {
               <button class="btn-filter"  @click="filter('noteText')" > only text   </button> 
               <button class="btn-filter"  @click="filter('noteImg')" > only images   </button> 
               </div>
+
+
+              <div class="search" >  
+              search: <input v-model="searchBytxt"   @input="filter"  type="text">
+              </div>
+
+
+
+
           </section>
       `,
   data() {
     return {
-      filterByType: ''
+      searchBytxt:''
     };
   },
   methods: {
     filter(type) {
-      this.$emit("filter", type)
-    }
+      this.$emit("filter", type,this.searchBytxt)
+    },
+   
   },
 };
 

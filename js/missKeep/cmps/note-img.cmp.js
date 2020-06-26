@@ -6,9 +6,10 @@ export default {
     template: `
     <section class="note-img">
 
-<div v-if="info">
+<div v-if="info"  :style="{backgroundColor:bgc}"  >
              {{info.title}}   <img :src="info.url">  
   <button class="btn-delete" @click="deleteNote">  delete  </button>
+  <input  v-model="bgc"  type="color">   </input>
 
  </div>
 <div v-else @change="setNote($event)" >  
@@ -24,6 +25,8 @@ export default {
                 url: '',
                 title: ""
             },
+            bgc:''
+            
 
         }
     },
@@ -35,5 +38,8 @@ export default {
         deleteNote() {
             noteService.deleteNote(this.idx)
         }
+    },
+    created(){
+        console.log(this.bgc)
     }
 }

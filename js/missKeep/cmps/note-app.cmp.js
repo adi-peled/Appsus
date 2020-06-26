@@ -12,7 +12,7 @@ export default {
     name: 'note-app',
     template: `
     <section  class="note-app"  >
-    <note-filter @filter="setFilter"> </note-filter>
+    <note-filter @filter="setFilter"    > </note-filter>
        <div>
            create new note :
             <button   class="btn-new-note"     @click="chooseType('noteText')">text note</button>
@@ -32,6 +32,7 @@ export default {
             notes: [],
             noteType: '',
             filterByType: '',
+            searchByTxt: '',
             currNote: null,
             newCurrNote: {}
         }
@@ -42,28 +43,59 @@ export default {
             this.newCurrNote.type = type
         },
         saveNote() {
-            noteService.addNote(this.newCurrNote)
+            if (!this.newCurrNote) return
+
+            noteService.addNote(this.newCurrNote);
+            this.newCurrNote = {}
+            this.noteType = ''
         },
         setNote(info, event) {
             this.newCurrNote.info = info
             if (!event) return
             this.info.imgObj = event
         },
-        setFilter(filterByType) {
+        setFilter(filterByType, txt) {
             this.filterByType = filterByType;
+            this.searchByTxt = txt
         },
         setCurrNote(note) {
             this.currNote = note;
         }
+
+
+        // booksToShow() {
+        //   const filterBy = this.filterBy;
+        //   if (!filterBy) return this.books;
+        //   var filteredbooks = this.books.filter((book) => {
+        //     return book.title.toLowerCase().includes(filterBy.byName.toLowerCase());
+        //   });
+        //   filteredbooks = filteredbooks.filter((book) => {
+        //     return (
+        //       filterBy.fromPrice < book.listPrice.amount &&
+        //       filterBy.toPrice > book.listPrice.amount
+        //     );
+        //   });
+        //   return filteredbooks;
+        // }
     },
     computed: {
         notesToShow() {
-            console.log(this.notes)
-            if (!this.filterByType) return this.notes
-            let filterdNotes = this.notes.filter((note) => {
-                console.log(note.type)
+            if (!this.filterByType) {
+                return JSON.parse(JSON.stringify(this.notes))
+            }
+            var filterdNotes = this.notes.filter((note) => {
+                // console.log(note)
                 return note.type === this.filterByType
+
             });
+            // if (this.filterByType === "noteText")
+            // filterdNotes = filterdNotes.filter((note) => {
+            //     console.log(note.info.txt, 'ggg')
+            //     console.log(this.searchByTxt)
+
+            //     return note.info.txt.toLowerCase().includes(this.searchByTxt.toLowerCase())
+
+            // })
             return filterdNotes
         },
     },
@@ -72,7 +104,6 @@ export default {
         noteService.getNotes()
             .then(notes => {
                 this.notes = notes
-                console.log(this.notes)
             })
 
     },

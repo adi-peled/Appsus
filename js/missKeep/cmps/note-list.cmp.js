@@ -6,11 +6,12 @@ export default {
     props: ['notes'],
     name: 'note-list',
     template: `
-    <section @click="console"   class="note-list">
-<component class="note-card" 
-        :is="note.type" v-for="(note,idx) in notes "  :key="note.info.id"  
-        :idx="idx"  :info="note.info"> 
-</component>
+    <section   class="note-list">
+        <component class="note-card" 
+                :is="note.type" v-for="(note,idx) in notes "  :key="note.info.id"  
+                :idx="idx"  :info="note.info"> 
+        </component>
+        
 </section>    
     `,
     data() {
@@ -20,14 +21,8 @@ export default {
     },
     methods: {
         selectNote(note) {
-            console.log(note)
             this.$emit('noteSelected', note)
         },
-        console() {
-            console.log(this.notes)
-
-        }
-
     },
     computed: {
     },

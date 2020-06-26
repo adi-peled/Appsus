@@ -1,0 +1,13 @@
+
+
+.todos-container{
+    height: 100%;
+    margin: 0;
+    list-style-type: none;
+}
+
+.done{
+    text-decoration: line-through;
+
+}
+
