@@ -1,8 +1,23 @@
 .mails-list {
     width: 100%;
+    height: 500px;
     text-align: center;
     padding: 20px;
     font-size: 25px;
+    overflow: auto;
+}
+
+.mail-search {
+    width: 50%;
+    outline: none;
+}
+
+.list-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .mails {
@@ -12,9 +27,11 @@
     border: rgb(236, 236, 236) 1px solid;
     padding: 20px;
     margin: 20px;
-    background-color: rgb(216, 216, 216);
+    background-color: white;
+    opacity: 50%;
 }
 
 .mails:hover {
-    background-color: rgb(212, 208, 208);
+    background-color: white;
+    opacity: 100%;
 }

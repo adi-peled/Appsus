@@ -2,12 +2,33 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
 .read {
     background-color: rgb(246, 243, 243);
 }
 
+.expand {
+    font-size: 50px;
+    color: rgb(64, 147, 224);
+}
+
 .starred {
     color: gold;
+}
+
+.mail-left-side {
+    width: 10%;
+}
+
+.mail-middle {
+    width: 60%;
+}
+
+.mail-right-side {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
