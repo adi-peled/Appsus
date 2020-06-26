@@ -5,7 +5,7 @@ export default {
     name: 'emailList',
     template: `
         <ul  class="mails-list">
-            <email-preview  class="mails" v-for="(mail,idx) in mails" :idx="idx" :mail="mail" />
+            <email-preview @emailDeleted="getNewList" class="mails" v-for="(mail,idx) in mails" :idx="idx" :mail="mail" />
         </ul>
       `,
     data() {
@@ -24,7 +24,12 @@ export default {
 
     },
     methods: {
+        getNewList() {
+            console.log('hi');
 
+            this.mails = Utils.loadFromStorage('emails')
+
+        }
     },
     components: {
         emailPreview

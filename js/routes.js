@@ -7,6 +7,8 @@ import emailStarred from './missEmail/pages/starred-pages.js';
 import emailList from './missEmail/cmps/email-list.cmp.js';
 import newMail from './missEmail/pages/new-mail-page.js';
 import sentMails from './missEmail/pages/sent-mails.js';
+import emailDetails from './missEmail/cmps/email-details.cmp.js';
+import drafts from './missEmail/pages/drafts-page.js';
 
 const myRoutes = [{
         path: '/',
@@ -29,12 +31,20 @@ const myRoutes = [{
                 component: emailList
             },
             {
+                path: '/email/inbox/:mailId',
+                component: emailDetails
+            },
+            {
                 path: '/email/newMail',
                 component: newMail
             },
             {
                 path: '/email/sentMails',
                 component: sentMails
+            },
+            {
+                path: '/email/drafts',
+                component: drafts
             }
         ]
     },

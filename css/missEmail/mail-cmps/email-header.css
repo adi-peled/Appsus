@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    background-color: whitesmoke;
+    color: white;
+    /* background-color: whitesmoke; */
     font-size: 40px;
     align-items: center;
 }

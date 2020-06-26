@@ -7,7 +7,20 @@ export default {
     template: `
         <section  :class="{read : mail.isRead}" >
         <div class="small-mail" @click="mailClicked(mail.id)">
-            <p>{{mail.from}}:</p><p><span>{{mail.subject}} </span> - {{text}}</p><p>Sent At : {{hour}}:{{minutes}}</p><span @click.stop="onDeleteMail(mail.id)">🗑️</span><span v-if="!mail.isSent" @click.stop="starClicked" :class="{starred : mail.isStarred}">★</span>
+        
+            <div class="mail-left-side">
+                {{mail.from}}:
+            </div>
+            <div class="mail-middle">
+                <span>{{mail.subject}} </span>- {{text}}
+            </div>
+            
+            <div class="mail-right-side">
+                Sent At : {{hour}}:{{minutes}}
+                <span @click.stop="onDeleteMail(mail.id)">🗑️</span>
+                <span v-if="!mail.isSent" @click.stop="starClicked" :class="{starred : mail.isStarred}">★</span>
+                <router-link class="expand" :to="'/email/inbox/' + mail.id">⚃</router-link>
+            </div>
         </div>    
             <div v-if="isClicked">
                 <h3>{{mail.subject}}</h3>

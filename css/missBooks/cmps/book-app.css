@@ -1,11 +1,12 @@
 body {
     background-color: white;
+    color: white;
 }
 
 .app-header {
     text-align: center;
     font-size: 20px;
-    background-color: white;
+    /* background-color: white; */
 }
 
 footer {
@@ -19,7 +20,7 @@ footer {
 }
 
 a {
-    color: black;
+    color: white;
     text-decoration: none;
     text-transform: capitalize;
 }

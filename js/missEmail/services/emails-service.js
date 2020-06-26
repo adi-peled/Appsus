@@ -6,7 +6,9 @@ export const emailsService = {
     newStarredList,
     mailRead,
     sendNewMail,
-    getSentMails
+    getSentMails,
+    getMail,
+    getProgress
 }
 
 function getEmails() {
@@ -15,6 +17,8 @@ function getEmails() {
 }
 
 function deleteMail(id) {
+    var emails = Utils.loadFromStorage('emails');
+
     const email = emails.findIndex(email => {
         if (email.id === id) {
             return email
@@ -22,6 +26,7 @@ function deleteMail(id) {
     })
     if (email !== -1) {
         emails.splice(email, 1)
+        Utils.storeToStorage('emails', emails)
     } else {
         const sentEmail = Utils.loadFromStorage('sentMails').findIndex(email => {
             if (email.id === id) {
@@ -34,7 +39,6 @@ function deleteMail(id) {
     }
     getStarredEmails()
         .then(res => Utils.storeToStorage('starred', res))
-    Utils.storeToStorage('emails', emails)
 }
 
 function mailRead(id) {
@@ -100,9 +104,31 @@ function sendNewMail(name, email, sub, msg) {
 
 }
 
+function getMail(id) {
+    var newEmails = Utils.loadFromStorage('emails')
+    const email = newEmails.findIndex(email => {
+        if (email.id === id) {
+            return email
+        }
+    })
+    return newEmails[email]
+
+}
+
+
 var sentMails = []
 
+function getProgress() {
+    var count = 0
+    var newEmails = Utils.loadFromStorage('emails')
+    newEmails.forEach(email => {
+        if (email.isRead === true) {
+            count++
+        }
+    })
+    return { max: newEmails.length, value: count }
 
+}
 
 
 
