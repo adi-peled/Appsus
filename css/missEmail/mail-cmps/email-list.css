@@ -7,6 +7,19 @@
     overflow: auto;
 }
 
+.mail-search {
+    width: 50%;
+    outline: none;
+}
+
+.list-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .mails {
     cursor: pointer;
     color: rgb(64, 147, 224);

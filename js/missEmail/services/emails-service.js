@@ -119,7 +119,7 @@ function getMail(id) {
 var sentMails = []
 
 function getProgress() {
-    var count = 0
+    var count = 0;
     var newEmails = Utils.loadFromStorage('emails')
     newEmails.forEach(email => {
         if (email.isRead === true) {

@@ -9,7 +9,7 @@ export default {
             <router-link class="new-mail" to="/email/inbox">Inbox</router-link>
             <router-link class="new-mail" to="/email/starred">Starred</router-link>
             <router-link class="new-mail" to="/email/sentMails">sent mail</router-link>
-            <progress  id="file" value="mails.value" max="mails.max"></progress>
+            <progress class="progress" value="mails.value" max="mails.max"></progress>
             <router-link class="new-mail" to="/email/drafts">Drafts</router-link>
 
         </section>
@@ -20,6 +20,7 @@ export default {
         };
     },
     created() {
+
 
     },
     methods: {

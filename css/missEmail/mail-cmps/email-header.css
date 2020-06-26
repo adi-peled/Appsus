@@ -10,6 +10,7 @@
 
 .main-header input {
     height: 50%;
+    outline: none;
     width: 30%;
     text-align: center;
 }
