@@ -22,7 +22,7 @@ export default {
 
       <button class="btn-edit" @click="editNote"> edit </button>
       <button class="btn-delete" @click="deleteNote"> delete </button>
-      <input v-model="bgc" type="color"> {{bgc}} </input>
+      <input v-model="bgc" type="color">  </input>
       </div>
   </ul>
   <div v-else>
