@@ -9,7 +9,7 @@ export default {
             <router-link class="new-mail" to="/email/inbox">Inbox</router-link>
             <router-link class="new-mail" to="/email/starred">Starred</router-link>
             <router-link class="new-mail" to="/email/sentMails">sent mail</router-link>
-            <progress v-bind="mails" class="progress" v-bind:max="max" value="value"></progress>
+            <progress v-bind="mails" class="progress" v-bind:max="max" v-bind:value="value"></progress>
             <router-link class="new-mail" to="/email/drafts">Drafts</router-link>
 
         </section>
@@ -30,6 +30,7 @@ export default {
             this.value = this.mails.value;
             this.max = this.mails.max
             console.log(this.mails.max);
+            console.log(this.mails.value);
         }
     },
 };
