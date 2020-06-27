@@ -44,3 +44,11 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+@media (max-width: 980px) {
+    .mail-middle {
+        width: 60%;
+        height: 20px;
+        overflow: hidden;
+    }
+}

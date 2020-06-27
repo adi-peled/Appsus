@@ -89,14 +89,21 @@ progress::-webkit-progress-value {
     .side-bar {
         margin-top: 0;
         width: auto;
+        margin-right: 100px;
+        height: 100px;
         flex-direction: row;
-        height: 0;
+        /* height: 0; */
     }
     progress {
         display: none;
     }
+    .pp {
+        display: none;
+    }
     .new-mail {
-        font-size: 15px;
+        font-size: 12px;
+        margin: 5px;
+        overflow: hidden;
     }
     .view-scroll {
         padding: 0px;
