@@ -11,3 +11,8 @@ text-align: center;
 margin: 0em; 
 padding: 15px;
 }
+
+.note-filter .search{
+  font-size: 22px;
+}
+
