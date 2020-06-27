@@ -4,19 +4,22 @@ export default {
     name: 'sideBar',
     template: `
         <section class="side-bar">
-            
+            <div class="prog-div">
+               <p class="pp">How many mails as been read :</p> <progress v-bind="mails" class="progress" :max="max" :value="value"></progress>
+                <!-- <p class="pp">{{readPrecentage}}%</p> -->
+            </div>
             <router-link class="new-mail" to="/email/newMail">New Mail</router-link>
             <router-link class="new-mail" to="/email/inbox">Inbox</router-link>
             <router-link class="new-mail" to="/email/starred">Starred</router-link>
             <router-link class="new-mail" to="/email/sentMails">sent mail</router-link>
-            <progress v-bind="mails" class="progress" v-bind:max="max" v-bind:value="value"></progress>
             <router-link class="new-mail" to="/email/drafts">Drafts</router-link>
 
         </section>
       `,
     data() {
         return {
-            mails: emailsService.getProgress()
+            mails: emailsService.getProgress(),
+            // precentage: this.readPrecentage()
         };
     },
     created() {
@@ -30,7 +33,16 @@ export default {
             this.value = this.mails.value;
             this.max = this.mails.max
             console.log(this.mails.max);
-            console.log(this.mails.value);
+            console.log(this.mails.max);
         }
     },
+    computed: {
+        readPrecentage() {
+            const value = this.value;
+            const max = this.max;
+            var pars = (value * 100) / max;
+            console.log(Math.floor(pars));
+            return Math.floor(pars)
+        }
+    }
 };

@@ -7,7 +7,6 @@ export default {
     template: `
         <section>
             <div class="main">
-                 <email-header/>
                 <div class="middle">
                     <side-bar/>
                     <router-view class="view-scroll"></router-view>

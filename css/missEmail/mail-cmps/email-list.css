@@ -1,6 +1,6 @@
 .mails-list {
     width: 100%;
-    height: 500px;
+    height: 800px;
     text-align: center;
     padding: 20px;
     font-size: 20px;
@@ -43,6 +43,7 @@ textarea {
 }
 
 .mails:hover {
+    transition: ease-in 0.3s;
     background-color: white;
     opacity: 100%;
 }
