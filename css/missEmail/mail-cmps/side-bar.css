@@ -28,6 +28,24 @@
     color: rgb(64, 147, 224);
 }
 
-.progress {
+progress {
     margin-left: 20px;
+}
+
+@media (max-width: 980px) {
+    .side-bar {
+        margin-top: 0;
+        width: auto;
+        flex-direction: row;
+        height: 0;
+    }
+    progress {
+        display: none;
+    }
+    .new-mail {
+        font-size: 15px;
+    }
+    .view-scroll {
+        padding: 0px;
+    }
 }

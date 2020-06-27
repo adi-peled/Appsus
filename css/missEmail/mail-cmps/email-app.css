@@ -12,3 +12,9 @@
 .view-scroll {
     overflow: auto;
 }
+
+@media (max-width: 980px) {
+    .middle {
+        flex-direction: column;
+    }
+}

@@ -9,7 +9,11 @@
 
 .mail-search {
     width: 50%;
+    margin-top: 30px;
     outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white 2px;
 }
 
 .list-section {
@@ -33,4 +37,13 @@
 .mails:hover {
     background-color: white;
     opacity: 100%;
+}
+
+@media (max-width: 980px) {
+    .mails-list {
+        font-size: 15px;
+    }
+    .mail-search {
+        display: none;
+    }
 }

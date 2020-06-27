@@ -1,5 +1,5 @@
 import { emailsService } from '../services/emails-service.js'
-
+import { eventBus } from '../../main-services/eventBus.js'
 export default {
     props: ['mail', 'idx'],
     name: 'emailPreviews',
@@ -49,7 +49,9 @@ export default {
         mailClicked(id) {
             this.isClicked = !this.isClicked;
             this.mail.isRead = true
-            emailsService.mailRead(id)
+            emailsService.mailRead(id);
+            eventBus.$emit('progress')
+
 
         },
         onDeleteMail(id) {
