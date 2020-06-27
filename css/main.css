@@ -20,4 +20,5 @@ button{
 *{
    text-transform:capitalize ;
     font-family: georgia;
+    /* overflow-x: hidden; */
 }

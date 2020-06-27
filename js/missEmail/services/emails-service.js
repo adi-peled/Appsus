@@ -145,7 +145,7 @@ var emails = [{
     sentAt: Date.now(),
     isStarred: false,
     isSent: false,
-    id: 'asdasdkn'
+    id: 'asdasdk3n'
 }, {
     from: 'Nir',
     fromMail: 'nir@maor&adi.com',
@@ -155,7 +155,7 @@ var emails = [{
     sentAt: Date.now(),
     isStarred: false,
     isSent: false,
-    id: 'aaswwrqt'
+    id: 'aas4wwrqt'
 }, {
     from: 'Shir',
     fromMail: 'shir@maor&adi.com',
@@ -165,7 +165,7 @@ var emails = [{
     sentAt: Date.now(),
     isSent: false,
     isStarred: true,
-    id: 'poqiweui'
+    id: 'po1qiweui'
 }, {
     from: 'Ron',
     fromMail: 'ron@maor&adi.com',
@@ -175,7 +175,7 @@ var emails = [{
     sentAt: Date.now(),
     isStarred: false,
     isSent: false,
-    id: ',mqwyetg'
+    id: ',mqwy2etg'
 }, {
     from: 'Sean',
     fromMail: 'sean@maor&adi.com',
@@ -185,5 +185,105 @@ var emails = [{
     sentAt: Date.now(),
     isStarred: true,
     isSent: false,
-    id: 'qweopiu'
+    id: 'qweo4piu'
+}, {
+    from: 'Roee',
+    fromMail: 'roee@maor&adi.com',
+    subject: 'Need to talk ASAP!!',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: false,
+    isSent: false,
+    id: 'asd8asdkn'
+}, {
+    from: 'Nir',
+    fromMail: 'nir@maor&adi.com',
+    subject: 'Haha last night was litt!',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: false,
+    isSent: false,
+    id: 'aaswwrqt9'
+}, {
+    from: 'Shir',
+    fromMail: 'shir@maor&adi.com',
+    subject: 'hi man what up ',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isSent: false,
+    isStarred: true,
+    id: 'poqiweui0'
+}, {
+    from: 'Ron',
+    fromMail: 'ron@maor&adi.com',
+    subject: 'dude you good?',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: false,
+    isSent: false,
+    id: ',amqwyetg'
+}, {
+    from: 'Sean',
+    fromMail: 'sean@maor&adi.com',
+    subject: 'cant beleive you did that !',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: true,
+    isSent: false,
+    id: 'qweopdaiu'
+}, {
+    from: 'Roee',
+    fromMail: 'roee@maor&adi.com',
+    subject: 'Need to talk ASAP!!',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: false,
+    isSent: false,
+    id: 'assssdasdkn'
+}, {
+    from: 'Nir',
+    fromMail: 'nir@maor&adi.com',
+    subject: 'Haha last night was litt!',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: false,
+    isSent: false,
+    id: 'aasadssswwrqt'
+}, {
+    from: 'Shir',
+    fromMail: 'shir@maor&adi.com',
+    subject: 'hi man what up ',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isSent: false,
+    isStarred: true,
+    id: 'poqiwbbbbeui'
+}, {
+    from: 'Ron',
+    fromMail: 'ron@maor&adi.com',
+    subject: 'dude you good?',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: false,
+    isSent: false,
+    id: ',mqzzzzwyetg'
+}, {
+    from: 'Sean',
+    fromMail: 'sean@maor&adi.com',
+    subject: 'cant beleive you did that !',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    isRead: false,
+    sentAt: Date.now(),
+    isStarred: true,
+    isSent: false,
+    id: 'qwexzsopiu'
 }, ]
