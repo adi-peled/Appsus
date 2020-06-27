@@ -41,6 +41,11 @@ border:0px
     width: 2.8em;
 }
 
+.pinned{
+    cursor: pointer;
+}
+
+
 @media (max-width:500px) {
     .btns-new-note {
         display: grid;
@@ -48,3 +53,4 @@ border:0px
         grid-template-rows: 1fr 1fr;
     }
 }
+
