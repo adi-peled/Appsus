@@ -8,7 +8,7 @@ export default {
     template: `
     <section class="note-edit">
 
-    <input type="text" v-model="info.txt" placeholder="enter your text"> 
+    <input type="text"  placeholder="enter your text"> 
 
 <button  @click="saveNote"> save </button>
     </section>    

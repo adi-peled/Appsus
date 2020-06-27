@@ -2,30 +2,45 @@ import { noteService } from "../services/note-service.js"
 import { Utils } from "../../main-services/utils.js"
 
 export default {
-  props: ['info', 'idx'],
+  props: ['info', 'idx', 'noteToEdit'],
   name: 'note-todos',
   template: `
-    <section class="note-todos">
+  <section class="note-todos">
 
-      <ul  v-if="info"  class="todos-container"  :style="{backgroundColor:bgc}" >
-     
-        <li v-for="(todo,idx) in  info.todos"   :class="{done:info.todos[idx].isDone}"      @click="done(idx)"   >
-             {{todo.txt}}  {{info.todos[idx].isDone}}
-        </li>
-  <button class="btn-delete" @click="deleteNote">  delete  </button>
-  <input  v-model="bgc"  type="color">   {{bgc}} </input>
+  <ul v-if="info" class="todos-container" :style="{backgroundColor:bgc}">
+
+      <li v-for="(todo,idx) in  info.todos" :class="{done:info.todos[idx].isDone}" @click="done(idx)">
+          {{todo.txt}}
+      </li>
+      <div @click="updatePinned" class="pinned">
+
+          <span v-if="info.isPinned">      <img src="./img/pinned-not.png">     </span>
+          <span v-else>    <img src="./img/not-pinned-not.png">  </span>
+      </div>
+   
+
+      <button class="btn-edit" @click="editNote"> edit </button>
+      <button class="btn-delete" @click="deleteNote"> delete </button>
+      <input v-model="bgc" type="color"> {{bgc}} </input>
+  </ul>
+  <div v-else>
+
+      <ul v-if="noteToEdit&&onEdit">
+
+          <li v-for=" todo in noteToEdit.info.todos">
+              <input v-model="todo.txt">
+          </li>
+          <button @click="updateNote"> save </button>
       </ul>
-
-      <ul v-else     @change="setNote">
-        <li v-for="(num,idx) in listLength" >
-               <input   v-model="inf.todos[idx].txt" type="text" />
-        </li>
-        <button v-if="checkListLength"   @click="updateLength(1,idx)"> + </button>
-        <button   v-if="checkListLength" @click="updateLength(-1,idx)"> - </button>
-
+      <ul @change="setNote" v-else>
+          <li v-for="(num,idx) in listLength">
+              <input v-model="inf.todos[idx].txt" type="text" />
+          </li>
+          <button v-if="checkListLength" @click="updateLength(1,idx)"> + </button>
+          <button v-if="checkListLength" @click="updateLength(-1,idx)"> - </button>
       </ul>
-      
-    </section> 
+  </div>
+</section>
     `,
   data() {
     return {
@@ -34,11 +49,16 @@ export default {
         todos: [{ txt: '', isDone: '' }]
       },
       bgc: '',
+      noteToEditCopy: this.noteToEdit,
+      onEdit: false
 
 
     }
   },
   created() {
+    if (this.noteToEditCopy) {
+      this.onEdit = true
+    }
   },
   methods: {
     setNote() {
@@ -46,11 +66,13 @@ export default {
       this.$emit('setVal', this.inf)
     },
     deleteNote() {
+      console.log(this.idx)
       noteService.deleteNote(this.idx)
     },
     done(idx) {
+      console.log(idx)
       console.log(this.info.todos[idx].isDone)
-        this.info.todos[idx].isDone = !this.info.todos[idx].isDone
+      this.info.todos[idx].isDone = !this.info.todos[idx].isDone
     },
     updateLength(diff) {
       if (diff === 1) {
@@ -61,6 +83,21 @@ export default {
         this.inf.todos.splice(this.listLength, 1)
         return this.listLength += diff
       }
+    },
+    updatePinned() {
+      console.log(this.info.isPinned)
+      this.info.isPinned = !this.info.isPinned
+      noteService.updatePinned(this.info)
+
+    },
+    editNote() {
+      this.$emit('editNote', this.info.id)
+    },
+    updateNote() {
+      noteService.updateNote(this.noteToEditCopy)
+      this.noteToEditCopy = null
+      this.$emit('editDone', this.noteToEditCopy)
+      this.onEdit = false
     }
   },
   computed: {
@@ -68,5 +105,4 @@ export default {
       return this.listLength
     }
   }
-
 }

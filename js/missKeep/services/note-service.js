@@ -3,7 +3,11 @@ import { Utils } from "../../main-services/utils.js";
 export const noteService = {
     getNotes,
     addNote,
-    deleteNote
+    deleteNote,
+    getNoteById,
+    updateNote,
+    updatePinned
+
 }
 
 function getNotes() {
@@ -17,7 +21,30 @@ function getNotes() {
 
 }
 
+
+function updateNote(newNote) {
+
+    var idx = gNotes.findIndex((note) => note.info.id === newNote.info.id)
+    gNotes.splice(idx, 1, newNote)
+    Utils.storeToStorage('notes', gNotes)
+}
+
+
+function updatePinned(info) {
+    var idx = gNotes.findIndex((note) => note.info.id === info.id)
+    var note = gNotes.find((note) => note.info.id === info.id)
+    gNotes.splice(idx, 1, note)
+    console.log(note)
+    Utils.storeToStorage('notes', gNotes)
+}
+
+
 function addNote(newNote) {
+    newNote.info.id = Utils.getRandomId()
+    newNote.info.isPinned = false
+    if (newNote.type === "noteVideo") {
+        newNote.info.url = newNote.info.url.replace('watch?v=', 'embed/')
+    }
     gNotes.push(newNote)
     Utils.storeToStorage('notes', gNotes)
 }
@@ -27,10 +54,19 @@ function deleteNote(idx) {
     Utils.storeToStorage('notes', gNotes)
 }
 
+function getNoteById(id) {
+    var editNote = gNotes.find((note) => note.info.id === id)
+    return Promise.resolve(editNote);
+}
+
+
+
+
 var gNotes = [
     {
         type: "noteTodos",
         info: {
+            id: Utils.getRandomId(),
             isPinned: false,
             todos: [
                 { txt: "clean my room", isDone: false },
@@ -40,8 +76,8 @@ var gNotes = [
     },
     {
         type: "noteTodos",
-
         info: {
+            id: Utils.getRandomId(),
             isPinned: false,
             todos: [
                 { txt: "take out the dog", isDone: false },
@@ -51,8 +87,8 @@ var gNotes = [
     },
     {
         type: "noteText",
-
         info: {
+            id: Utils.getRandomId(),
             isPinned: true,
             txt: "hi there!"
         }
@@ -60,6 +96,7 @@ var gNotes = [
     {
         type: "noteImg",
         info: {
+            id: Utils.getRandomId(),
             isPinned: false,
             url: "./img/1.png",
             title: "orange monster",
@@ -70,8 +107,21 @@ var gNotes = [
 
     },
     {
+        type: "noteVideo",
+        info: {
+            id: Utils.getRandomId(),
+            isPinned: false,
+            url: "https://www.youtube.com./embed/09R8_2nJtjg",
+            title: "video here",
+            style: {
+                backgroundColor: "#565"
+            }
+        }
+    },
+    {
         type: "noteImg",
         info: {
+            id: Utils.getRandomId(),
             isPinned: true,
             url: "./img/2.png",
             title: "purple monster",

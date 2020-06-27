@@ -1,45 +1,78 @@
 import { noteService } from "../services/note-service.js"
 
 export default {
-    props: ['info', 'idx'],
+    props: ['info', 'idx', 'noteToEdit'],
     name: 'note-img',
     template: `
     <section class="note-img">
+    <div class="img-container" v-if="info" :style="{backgroundColor:bgc}">
+        {{info.title}} <img :src="info.url">
+        <div class="btns">
+            <div @click="updatePinned" class="pinned">
+                <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
+                <span v-else> <img src="./img/not-pinned-not.png"> </span>
+            </div>
 
-<div v-if="info"  :style="{backgroundColor:bgc}"  >
-             {{info.title}}   <img :src="info.url">  
-  <button class="btn-delete" @click="deleteNote">  delete  </button>
-  <input  v-model="bgc"  type="color">   </input>
+            <button class="btn-edit" @click="editNote"> edit </button>
+            <button class="btn-delete" @click="deleteNote"> delete </button>
+            <input v-model="bgc" type="color"> </input>
+        </div>
+    </div>
+    <div v-else>
+        <div v-if="noteToEdit&&onEdit">
+            <input type="text" v-model="noteToEdit.info.title">
+            <input type="text" v-model="noteToEdit.info.url">
+            <button @click="updateNote"> save </button>
+        </div>
 
- </div>
-<div v-else @change="setNote($event)" >  
- <input type="text"   v-model="data.title"   placeholder="enter the title of the image">
-  <input type="file"     accept="image/*"  > 
-     </div>
+        <div v-else @change="setNote()">
+            <input type="text" v-model="data.title">
+            <input type="text" v-model="data.url">
+        </div>
 
-    </section>    
+    </div>
+
+</section>
     `,
     data() {
         return {
             data: {
-                url: '',
-                title: ""
+                url: 'enter url',
+                title: "enter the title"
             },
-            bgc:''
-            
+            bgc: '',
+            noteToEditCopy: this.noteToEdit,
+            onEdit: false
+
 
         }
     },
     methods: {
-        setNote(e) {
-            console.log(event.target.files[0])
-            this.$emit('setVal', this.data, event.target.files[0])
+        setNote() {
+            this.$emit('setVal', this.data)
         },
         deleteNote() {
             noteService.deleteNote(this.idx)
+        },
+        updatePinned() {
+            this.info.isPinned = !this.info.isPinned
+            noteService.updatePinned(this.info)
+
+        },
+        editNote() {
+            this.$emit('editNote', this.info.id)
+        },
+        updateNote() {
+            noteService.updateNote(this.noteToEditCopy)
+            this.noteToEditCopy = null
+            this.$emit('editDone', this.noteToEditCopy)
+            this.onEdit = false
         }
+
     },
-    created(){
-        console.log(this.bgc)
+    created() {
+        if (this.noteToEditCopy) {
+            this.onEdit = true
+        }
     }
 }

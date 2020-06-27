@@ -11,7 +11,7 @@ export default {
 
 
               <div class="search" >  
-              search: <input v-model="searchBytxt"   @input="filter"  type="text">
+              search: <input v-model="searchBytxt"  v-if="filterType"   @input="filter"  type="text">
               </div>
 
 
@@ -21,14 +21,19 @@ export default {
       `,
   data() {
     return {
-      searchBytxt:''
+      searchBytxt: '',
+      filterType: ''
     };
   },
   methods: {
     filter(type) {
-      this.$emit("filter", type,this.searchBytxt)
+      if (typeof type === "string") {
+        this.$emit("filter", type, this.searchBytxt)
+        this.filterType = type
+      }
+      else this.$emit("filter", this.filterType, this.searchBytxt)
     },
-   
+
   },
 };
 
