@@ -13,10 +13,11 @@ export default {
           {{todo.txt}}
       </li>
       <div @click="updatePinned" class="pinned">
-          <span v-if="info.isPinned"> 📌 </span>
-          <span v-else> notPinned </span>
+
+          <span v-if="info.isPinned">      <img src="./img/pinned-not.png">     </span>
+          <span v-else>    <img src="./img/not-pinned-not.png">  </span>
       </div>
-      {{info.isPinned}}
+   
 
       <button class="btn-edit" @click="editNote"> edit </button>
       <button class="btn-delete" @click="deleteNote"> delete </button>
@@ -65,6 +66,7 @@ export default {
       this.$emit('setVal', this.inf)
     },
     deleteNote() {
+      console.log(this.idx)
       noteService.deleteNote(this.idx)
     },
     done(idx) {
@@ -85,6 +87,8 @@ export default {
     updatePinned() {
       console.log(this.info.isPinned)
       this.info.isPinned = !this.info.isPinned
+      noteService.updatePinned(this.info)
+
     },
     editNote() {
       this.$emit('editNote', this.info.id)

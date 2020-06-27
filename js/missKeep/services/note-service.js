@@ -5,7 +5,8 @@ export const noteService = {
     addNote,
     deleteNote,
     getNoteById,
-    updateNote
+    updateNote,
+    updatePinned
 
 }
 
@@ -22,7 +23,6 @@ function getNotes() {
 
 
 function updateNote(newNote) {
-    console.log(newNote)
 
     var idx = gNotes.findIndex((note) => note.info.id === newNote.info.id)
     gNotes.splice(idx, 1, newNote)
@@ -30,9 +30,16 @@ function updateNote(newNote) {
 }
 
 
+function updatePinned(info) {
+    var idx = gNotes.findIndex((note) => note.info.id === info.id)
+    var note = gNotes.find((note) => note.info.id === info.id)
+    gNotes.splice(idx, 1, note)
+    console.log(note)
+    Utils.storeToStorage('notes', gNotes)
+}
+
 
 function addNote(newNote) {
-    console.log(newNote)
     newNote.info.id = Utils.getRandomId()
     newNote.info.isPinned = false
     gNotes.push(newNote)
@@ -40,15 +47,19 @@ function addNote(newNote) {
 }
 
 function deleteNote(idx) {
+    console.log(gNotes)
+
     gNotes.splice(idx, 1)
+    console.log(gNotes)
     Utils.storeToStorage('notes', gNotes)
 }
 
 function getNoteById(id) {
     var editNote = gNotes.find((note) => note.info.id === id)
     return Promise.resolve(editNote);
-
 }
+
+
 
 
 var gNotes = [
@@ -84,7 +95,6 @@ var gNotes = [
     },
     {
         type: "noteImg",
-
         info: {
             id: Utils.getRandomId(),
             isPinned: false,
@@ -95,6 +105,18 @@ var gNotes = [
             }
         }
 
+    },
+    {
+        type: "noteVideo",
+        info: {
+            id: Utils.getRandomId(),
+            isPinned: false,
+            url: "https://www.youtube.com./embed/09R8_2nJtjg",
+            title: "video here",
+            style: {
+                backgroundColor: "#565"
+            }
+        }
     },
     {
         type: "noteImg",

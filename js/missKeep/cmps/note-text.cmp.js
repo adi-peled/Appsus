@@ -14,9 +14,10 @@ export default {
             <button class="btn-delete" @click="deleteNote"> delete </button>
             <button class="btn-edit" @click="editNote"> edit </button>
             <div @click="updatePinned" class="pinned">
-                <span v-if="info.isPinned"> 📌 </span>
-                <span v-else> notPinned </span>
-            </div>
+
+          <span v-if="info.isPinned">      <img src="./img/pinned-not.png">     </span>
+          <span v-else>    <img src="./img/not-pinned-not.png">  </span>
+      </div>
             <input class="input-color" v-model="bgc" type="color"> </input>
         </div>
     </div>
@@ -38,8 +39,7 @@ export default {
             bgc: '',
             onEdit: false,
             noteToEditCopy: this.noteToEdit,
-            onAddNote: false,
-            
+
         }
     },
     methods: {
@@ -51,11 +51,11 @@ export default {
         },
         editNote() {
             this.$emit('editNote', this.info.id)
-            this.onAddNote=false
+            this.onAddNote = false
         },
         updatePinned() {
-            console.log(this.info.isPinned)
             this.info.isPinned = !this.info.isPinned
+            noteService.updatePinned(this.info)
         },
         updateNote() {
             noteService.updateNote(this.noteToEditCopy)
@@ -68,7 +68,7 @@ export default {
         if (this.noteToEditCopy) {
             this.onEdit = true
         }
-      
+
     },
     components: {
         noteEdit

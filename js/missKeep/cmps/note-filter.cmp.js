@@ -11,7 +11,7 @@ export default {
 
 
               <div class="search" >  
-              search: <input v-model="searchBytxt"   @input="filter"  type="text">
+              search: <input v-model="searchBytxt"  v-if="filterType"   @input="filter"  type="text">
               </div>
 
 
