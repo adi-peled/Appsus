@@ -1,25 +1,39 @@
 import { emailsService } from '../services/emails-service.js'
-
+import { eventBus } from '../../main-services/eventBus.js'
 export default {
     name: 'eMailDetails',
     template: `
-        <section>
-            <h1>{{mail.subject}}</h1>
-            <h3>{{mail.fromMail}}</h3>
-            <h3>{{hour}}:{{minutes}}</h3>
-            <h3>{{mail.from}}</h3>
+        <section v-if="!mail.isDraft">
+            <h1>Subject: {{mail.subject}}</h1>
+            <h3>Mail: {{mail.fromMail}}</h3>
+            <h3>Sent At: {{hour}}:{{minutes}}</h3>
+            <h3>From: {{mail.from}}</h3>
             <h3>{{mail.body}}</h3>
-            <router-link to="/email/inbox"><span @click.stop="onDeleteMail(mail.id)">🗑️</span></router-link>
-
-
+            <router-link to="/email/inbox"><span @click="onDeleteMail(mail.id)">🗑️</span></router-link>
+            <span class="star" v-if="!mail.isSent" @click="starClicked" :class="{starred : mail.isStarred}">★</span>
+        </section>
+        <section v-else>
+        <section class="form-section">
+            <form class="new-form">
+                Name : <input type="text" placeholder="Full Name" v-model="mail.from"/>
+                eMail : <input type="email" placeholder="example@maor&adi.com" v-model="mail.fromMail"/>
+                Subject : <input type="text" placeholder="Subject"  v-model="mail.subject"/>
+                Messege:<textarea  v-model="mail.body" id="w3review" name="w3review" rows="20" cols="" placeholder="Write your messege here"/>
+                <div class="button-div">
+                    <button @click="onSendMail(mail.from,mail.fromMail,mail.subject,mail.body,false)" type="button">Send</button> 
+                    <button @click="onSendMail(mail.from,mail.fromMail,mail.subject,mail.body,true)" type="button">Send To Drafts</button> 
+                </div>
+            
+            </form>
+        </section>
         </section>
       `,
     data() {
         return {};
     },
     created() {
+
         var { mailId } = this.$route.params
-        console.log(mailId)
         this.mail = emailsService.getMail(mailId)
         this.hour = new Date(this.mail.sentAt).getHours()
         this.minutes = new Date(this.mail.sentAt).getMinutes()
@@ -28,7 +42,19 @@ export default {
     methods: {
         onDeleteMail(id) {
             emailsService.deleteMail(id)
+            eventBus.$emit('newMails')
+        },
+        starClicked() {
+            console.log('hi');
+            emailsService.newStarredList(this.mail.id)
             this.$emit("emailDeleted");
+        },
+        onSendMail(name, email, sub, msg, isDraft) {
+            emailsService.sendNewMail(name, email, sub, msg, isDraft);
+            this.name = '';
+            this.email = '';
+            this.sub = '';
+            this.msg = '';
         }
     },
 };

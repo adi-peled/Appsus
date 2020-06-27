@@ -1,5 +1,4 @@
 import { emailsService } from '../services/emails-service.js'
-import { Utils } from '../../main-services/utils.js';
 
 export default {
     props: ['mail', 'idx'],
@@ -38,6 +37,7 @@ export default {
         };
     },
     created() {
+
         if (this.mail.body.length > 30) {
             this.text = this.mail.body.substring(0, 30)
             this.text += '...'

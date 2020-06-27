@@ -1,8 +1,8 @@
 import emailPreview from './email-preview.cmp.js'
 import { emailsService } from '../services/emails-service.js'
 import { Utils } from '../../main-services/utils.js';
+import { eventBus } from '../../main-services/eventBus.js'
 export default {
-    props: ['mails'],
     name: 'emailList',
     template: `
     <section class="list-section">
@@ -19,24 +19,26 @@ export default {
         }
     },
     created() {
-        this.mails = Utils.loadFromStorage('email')
-        if (!this.mails) {
-            emailsService.getEmails()
-                .then(res => this.mails = res)
-        }
+        eventBus.$on('newMails', this.getNewList)
+        emailsService.getEmails()
+            .then(res => Utils.storeToStorage('emails', res))
+
+        this.mails = Utils.loadFromStorage('emails')
+        console.log(this.mails);
+
     },
     mounted() {
 
     },
     methods: {
         getNewList() {
-            console.log('hi');
-
-            this.mails = Utils.loadFromStorage('emails');
-
+            this.mails = Utils.loadFromStorage('emails')
+            if (!this.mails || !this.mails.length)
+                emailsService.getEmails()
+                .then(res => this.mails = res)
+            console.log('getNewList In list', this.mails);
         },
         search() {
-            console.log(this.searchWord);
             if (this.searchWord === '') {
                 this.mails = Utils.loadFromStorage('emails');
             } else {
@@ -47,7 +49,6 @@ export default {
                     }
                 })
             }
-
         }
     },
     components: {

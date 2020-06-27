@@ -11,37 +11,36 @@ export const emailsService = {
     getProgress
 }
 
-function getEmails() {
-    Utils.storeToStorage('emails', emails)
-    return Promise.resolve(emails)
-}
 
 function deleteMail(id) {
-    var emails = Utils.loadFromStorage('emails');
-
-    const email = emails.findIndex(email => {
-        if (email.id === id) {
-            return email
-        }
-    })
-    if (email !== -1) {
-        emails.splice(email, 1)
+    var emails = Utils.loadFromStorage('emails')
+    const emailIdx = emails.findIndex(email => email.id === id)
+    if (emailIdx !== -1) {
+        emails.splice(emailIdx, 1)
         Utils.storeToStorage('emails', emails)
+        console.log('deleteEmails', emails);
+
     } else {
-        const sentEmail = Utils.loadFromStorage('sentMails').findIndex(email => {
-            if (email.id === id) {
-                return email
-            }
-        })
+        const sentEmail = Utils.loadFromStorage('sentMails').findIndex(email => email.id === id)
         var sendEmails = Utils.loadFromStorage('sentMails')
         sendEmails.splice(sentEmail, 1)
         Utils.storeToStorage('sentMails', sendEmails)
     }
+
     getStarredEmails()
         .then(res => Utils.storeToStorage('starred', res))
 }
 
+function getEmails() {
+    var mails = Utils.loadFromStorage('emails');
+    console.log('getEmails Working', mails);
+    if (!mails || mails.length === 0) mails = emails;
+    return Promise.resolve(mails)
+}
+
+
 function mailRead(id) {
+    var emails = Utils.loadFromStorage('emails');
     const email = emails.findIndex(email => {
         if (email.id === id) {
             return email
@@ -49,12 +48,15 @@ function mailRead(id) {
     })
     if (email === -1) return
     emails[email].isRead = true;
+    console.log('hi');
+
     Utils.storeToStorage('emails', emails)
 
 }
 
 
 function newStarredList(id) {
+    var emails = Utils.loadFromStorage('emails')
     const email = emails.findIndex(email => {
         if (email.id === id) {
             return email
@@ -87,7 +89,7 @@ function getSentMails() {
     return mails
 }
 
-function sendNewMail(name, email, sub, msg) {
+function sendNewMail(name, email, sub, msg, isDraft) {
     var newMail = {
         from: name,
         fromMail: email,
@@ -97,10 +99,12 @@ function sendNewMail(name, email, sub, msg) {
         sentAt: Date.now(),
         isSent: true,
         isStarred: false,
+        isDraft: isDraft,
         id: Utils.getRandomId()
     }
+    var sentMails = Utils.loadFromStorage('emails')
     sentMails.push(newMail)
-    Utils.storeToStorage('sentMails', sentMails)
+    Utils.storeToStorage('emails', sentMails)
 
 }
 
