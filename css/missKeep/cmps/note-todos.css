@@ -14,3 +14,6 @@
     width: 35px;
 }
 
+.todos-container li {
+    cursor: pointer;
+}
