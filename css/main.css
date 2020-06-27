@@ -1,13 +1,15 @@
 @import './missBooks/books-main.css';
 @import './missEmail/email-main.css';
 @import './missKeep/keep-main.css';
-
-html, body {
+@import './home-page.css';
+html,
+body {
     background-image: url('../img/bgc6.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
     height: 100vh;
+    overflow: hidden;
 }
 
 button {
@@ -16,7 +18,6 @@ button {
     color: white;
     margin: 7px;
     min-width: fit-content;
-    
 }
 
 * {
