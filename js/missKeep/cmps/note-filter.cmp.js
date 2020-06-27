@@ -7,7 +7,7 @@ export default {
               <button class="btn-filter"  @click="filter('noteText')" > only text   </button> 
               <button class="btn-filter"  @click="filter('noteImg')" > only images   </button> 
               </div>
-              <div class="search"   v-if="filterType" >  
+              <div class="search"    v-if="filterType" >  
               search: <input v-model="searchBytxt"   placeholder="enter text"  @input="filter"  type="text">
               </div>
           </section>
