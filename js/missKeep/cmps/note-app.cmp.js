@@ -18,16 +18,16 @@ export default {
 
     <note-filter @filter="setFilter"   > </note-filter>
     create new note :
-    <div  btns-new-note    > 
+    <div  class="btns-new-note "   > 
             <button class="btn-new-note" @click="chooseType('noteText')">text note</button>
             <button class="btn-new-note" @click="chooseType('noteImg')">image note</button>
             <button class="btn-new-note" @click="chooseType('noteTodos')">list note</button>
             <button class="btn-new-note" @click="chooseType('noteVideo')">video note</button>
       </div>
           <note-text @setVal="setNote" @editDone="editDone" :noteToEdit="noteToEdit" v-if="(noteType==='noteText')"> </note-text>
-          <note-img   :noteToEdit="noteToEdit" @setVal="setNote" v-if="(noteType==='noteImg')"> </note-img>
-          <note-todos  @editDone="editDone" @setVal="setNote"  :noteToEdit="noteToEdit" v-if="(noteType==='noteTodos')"> </note-todos>
-          <note-video  @editDone="editDone" @setVal="setNote"  :noteToEdit="noteToEdit" v-if="(noteType==='noteVideo')"> </note-video>
+          <note-img @setVal="setNote" :noteToEdit="noteToEdit" v-if="(noteType==='noteImg')"> </note-img>
+          <note-todos  @editDone="editDone" @setVal="setNote" :noteToEdit="noteToEdit" v-if="(noteType==='noteTodos')"> </note-todos>
+          <note-video  @editDone="editDone" @setVal="setNote"  v-if="(noteType==='noteVideo')"> </note-video>
 
           <button v-if="onNewNote" @click="saveNote">save</button>
           <button v-if="onNewNote" @click="close">close </button>

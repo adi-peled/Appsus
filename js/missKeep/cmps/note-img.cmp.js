@@ -20,7 +20,7 @@ export default {
     <div v-else>
         <div v-if="noteToEdit&&onEdit">
             <input type="text" v-model="noteToEdit.info.title">
-            <input type="text" v-model="noteToEdit.info.url">
+            <input type="text" v-model="noteToEdit.info.url"   placeholder="dgrd"    >
             <button @click="updateNote"> save </button>
         </div>
 
@@ -56,18 +56,16 @@ export default {
         updatePinned() {
             this.info.isPinned = !this.info.isPinned
             noteService.updatePinned(this.info)
-
         },
         editNote() {
             this.$emit('editNote', this.info.id)
         },
         updateNote() {
             noteService.updateNote(this.noteToEditCopy)
+            this.onEdit = false
             this.noteToEditCopy = null
             this.$emit('editDone', this.noteToEditCopy)
-            this.onEdit = false
         }
-
     },
     created() {
         if (this.noteToEditCopy) {

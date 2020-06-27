@@ -10,15 +10,15 @@ html, body {
     height: 100vh;
 }
 
-
-button{
+button {
     border-radius: 15px;
-    border:2px solid white;
-    color: white; 
+    border: 2px solid white;
+    color: white;
     margin: 7px;
 }
-*{
-   text-transform:capitalize ;
+
+* {
+    text-transform: capitalize;
     font-family: georgia;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }

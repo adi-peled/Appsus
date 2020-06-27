@@ -8,8 +8,12 @@
     padding: 30px;
 }
 
-
 /* 450 */
 
-
-/* @media screen (max-width) */
+@media (max-width:450px) {
+    .btns-new-note {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}

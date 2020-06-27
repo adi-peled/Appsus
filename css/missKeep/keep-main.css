@@ -14,20 +14,17 @@ button:hover {
 input {
     background-color: transparent;
     border: none;
-    border-bottom :2px solid white;
+    border-bottom: 2px solid white;
     color: white;
-
 }
 
 input::placeholder {
     color: white;
 }
 
-
 .btns-note {
     display: flex;
 }
-
 .btns-note input {
     padding: 0;
     border: 0;
