@@ -1,9 +1,14 @@
 .home-page-sentence {
-    font-size: 100px;
+    font-size: 90px;
     width: 900px;
     margin: 0;
     text-align: center;
     height: 100%;
+}
+
+.apsus {
+    font-size: 50px;
+    border-bottom: white 3px solid;
 }
 
 .home-page {
@@ -12,4 +17,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.home-page-routes {
+    width: 70%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.home-page-routes img {
+    width: 200px;
+    height: 200px
 }
