@@ -1,12 +1,7 @@
 .new-form {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    opacity: 70%;
-}
-
-.new-form:hover {
-    opacity: 100%;
+    width: 30%;
 }
 
 .button-div {
@@ -32,9 +27,20 @@
 .new-form input,
 textarea,
 button {
-    border: 1px solid rgb(207, 207, 207);
-    border-radius: 10px;
+    border: none;
     outline: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+}
+
+.new-form input,
+textarea,
+::placeholder {
+    color: white;
+}
+
+.new-form textarea {
+    border: 2px white solid;
 }
 
 .form-section {

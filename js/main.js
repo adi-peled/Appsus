@@ -1,5 +1,5 @@
 import appHeader from './main-cmps/app-header.cmp.js';
-// import Utils from './main-services/utils'
+import { Utils } from './main-services/utils.js'
 // import {eventBus} from '../../main-services/eventBus.js';
 
 import { myRouter } from './routes.js'

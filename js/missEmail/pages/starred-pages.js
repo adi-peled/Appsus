@@ -15,11 +15,16 @@ export default {
         }
     },
     created() {
-        this.mails = Utils.loadFromStorage('starred')
+        this.mails = Utils.loadFromStorage('emails')
         if (!this.mails) {
             emailsService.getStarredEmails()
                 .then(res => this.mails = res)
         }
+        this.mails = this.mails.filter(mail => {
+            if (mail.isStarred) {
+                return mail
+            }
+        })
 
     },
     mounted() {
@@ -27,7 +32,16 @@ export default {
     },
     methods: {
         getNewList() {
-            this.mails = Utils.loadFromStorage('starred')
+            this.mails = Utils.loadFromStorage('emails')
+            if (!this.mails) {
+                emailsService.getStarredEmails()
+                    .then(res => this.mails = res)
+            }
+            this.mails = this.mails.filter(mail => {
+                if (mail.isStarred) {
+                    return mail
+                }
+            })
         }
 
     },

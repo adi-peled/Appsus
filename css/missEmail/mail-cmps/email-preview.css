@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.view-scroll {
+    width: 100%;
+}
+
 .read {
     background-color: rgb(246, 243, 243);
 }
@@ -12,6 +16,10 @@
 .expand {
     font-size: 50px;
     color: rgb(64, 147, 224);
+}
+
+.star {
+    cursor: pointer;
 }
 
 .starred {

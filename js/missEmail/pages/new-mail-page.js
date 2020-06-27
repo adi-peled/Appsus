@@ -10,7 +10,8 @@ export default {
                 Subject : <input type="text" placeholder="Subject"  v-model="sub"/>
                 Messege:<textarea  v-model="msg" id="w3review" name="w3review" rows="20" cols="" placeholder="Write your messege here"/>
                 <div class="button-div">
-                    <button @click="onSendMail(name,email,sub,msg)" type="button">Send</button> 
+                    <button @click="onSendMail(name,email,sub,msg,false)" type="button">Send</button> 
+                    <button @click="onSendMail(name,email,sub,msg,true)" type="button">Send To Drafts</button> 
                 </div>
             
             </form>
@@ -32,8 +33,8 @@ export default {
 
     },
     methods: {
-        onSendMail(name, email, sub, msg) {
-            emailsService.sendNewMail(name, email, sub, msg);
+        onSendMail(name, email, sub, msg, isDraft) {
+            emailsService.sendNewMail(name, email, sub, msg, isDraft);
             this.name = '';
             this.email = '';
             this.sub = '';

@@ -5,9 +5,11 @@ import { Utils } from '../../main-services/utils.js';
 export default {
     name: 'sentMails',
     template: `
-        <section>
+        <section  class="list-section">
+        <ul  class="mails-list">
         <email-preview  @emailDeleted="getNewList" class="mails" v-for="(mail,idx) in mails" :idx="idx" :mail="mail" />
-        </section>
+        </ul>
+    </section>
       `,
     data() {
         return {
@@ -15,13 +17,24 @@ export default {
         };
     },
     created() {
-        this.mails = emailsService.getSentMails()
+        this.mails = Utils.loadFromStorage('emails')
+
+        this.mails = this.mails.filter(mail => {
+            if (mail.isSent && !mail.isDraft) {
+                console.log(mail);
+                return mail
+            }
+        })
     },
     methods: {
         getNewList() {
             this.mails = emailsService.getSentMails()
-            console.log(this.mails);
-
+            this.mails = this.mails.filter(mail => {
+                if (!mail.isDraft) {
+                    console.log(mail);
+                    return mail
+                }
+            })
         }
     },
     components: {
