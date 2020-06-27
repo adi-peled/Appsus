@@ -7,27 +7,30 @@ export default {
     <section class="note-img">
     <div class="img-container" v-if="info" :style="{backgroundColor:bgc}">
         {{info.title}} <img :src="info.url">
-        <div @click="updatePinned" class="pinned">
-            <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
-            <span v-else> <img src="./img/not-pinned-not.png"> </span>
+        <div class="btns">
+            <div @click="updatePinned" class="pinned">
+                <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
+                <span v-else> <img src="./img/not-pinned-not.png"> </span>
+            </div>
+
+            <button class="btn-edit" @click="editNote"> edit </button>
+            <button class="btn-delete" @click="deleteNote"> delete </button>
+            <input v-model="bgc" type="color"> </input>
         </div>
-      <button class="btn-edit" @click="editNote"> edit </button>
-        <button class="btn-delete" @click="deleteNote"> delete </button>
-        <input v-model="bgc" type="color"> </input>
     </div>
-<div v-else > 
-<div  v-if="noteToEdit&&onEdit">
-<input type="text" v-model="noteToEdit.info.title">
-<input type="text"  v-model="noteToEdit.info.url">
-<button @click="updateNote"> save </button>
-</div>
+    <div v-else>
+        <div v-if="noteToEdit&&onEdit">
+            <input type="text" v-model="noteToEdit.info.title">
+            <input type="text" v-model="noteToEdit.info.url">
+            <button @click="updateNote"> save </button>
+        </div>
 
-    <div v-else @change="setNote()">
-        <input type="text" v-model="data.title">
-        <input type="text"  v-model="data.url">
+        <div v-else @change="setNote()">
+            <input type="text" v-model="data.title">
+            <input type="text" v-model="data.url">
+        </div>
+
     </div>
-
-</div>
 
 </section>
     `,

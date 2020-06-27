@@ -5,7 +5,7 @@
 @import './cmps/note-text.css';
 @import './cmps/note-todos.css';
 @import './cmps/note-img.css';
-
+@import './cmps/note-todos.css';
 
 button{
 cursor: pointer;

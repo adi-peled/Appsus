@@ -42,15 +42,15 @@ function updatePinned(info) {
 function addNote(newNote) {
     newNote.info.id = Utils.getRandomId()
     newNote.info.isPinned = false
+    if (newNote.type === "noteVideo") {
+        newNote.info.url = newNote.info.url.replace('watch?v=', 'embed/')
+    }
     gNotes.push(newNote)
     Utils.storeToStorage('notes', gNotes)
 }
 
 function deleteNote(idx) {
-    console.log(gNotes)
-
     gNotes.splice(idx, 1)
-    console.log(gNotes)
     Utils.storeToStorage('notes', gNotes)
 }
 

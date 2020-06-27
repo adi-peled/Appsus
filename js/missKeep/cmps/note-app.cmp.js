@@ -45,18 +45,19 @@ export default {
     },
     methods: {
         chooseType(type) {
-
             this.onNewNote = true
             this.noteType = type
             this.newCurrNote.type = type
         },
         saveNote() {
+            console.log(this.newCurrNote)
             if (!this.newCurrNote) return
             noteService.addNote(this.newCurrNote);
             this.newCurrNote = {}
             this.noteType = ''
         },
         setNote(info) {
+            console.log(info)
             this.newCurrNote.info = info
         },
         setFilter(filterByType, txt) {
@@ -82,7 +83,6 @@ export default {
     },
     computed: {
         notesToShow() {
-            console.log(this.notes)
             const filterByType = this.filterByType
             const searchBytxt = this.searchByTxt
             var pinnedNotes = this.notes.filter((note) => {
