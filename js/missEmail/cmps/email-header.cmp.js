@@ -3,8 +3,6 @@ export default {
     template: `
         <section>
             <header class="main-header">
-                {{eMailLogo}}
-                apps
             </header>
         </section>
       `,
