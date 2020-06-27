@@ -1,6 +1,7 @@
 @import './missBooks/books-main.css';
 @import './missEmail/email-main.css';
 @import './missKeep/keep-main.css';
+
 html, body {
     background-image: url('../img/bgc6.jpg');
     background-repeat: no-repeat;
@@ -21,4 +22,5 @@ button {
     text-transform: capitalize;
     font-family: georgia;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
