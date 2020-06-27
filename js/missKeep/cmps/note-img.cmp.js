@@ -17,14 +17,14 @@ export default {
             <input v-model="bgc" type="color"> </input>
         </div>
     </div>
-    <div v-else>
-        <div v-if="noteToEdit&&onEdit">
+    <div v-else class="input-new">
+        <div v-if="noteToEdit&&onEdit" >
             <input type="text" v-model="noteToEdit.info.title">
             <input type="text" v-model="noteToEdit.info.url"   placeholder="dgrd"    >
             <button @click="updateNote"> save </button>
         </div>
 
-        <div v-else @change="setNote()">
+        <div v-else @change="setNote()" >
             <input type="text" v-model="data.title">
             <input type="text" v-model="data.url">
         </div>

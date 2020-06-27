@@ -17,12 +17,13 @@ export default {
                 <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
                 <span v-else> <img src="./img/not-pinned-not.png"> </span>
             </div>
+            <button class="btn-edit" > edit </button>
 
             <button class="btn-delete" @click="deleteNote"> delete </button>
             <input v-model="bgc" type="color"> </input>
         </div>
     </div>
-    <div v-else>
+    <div v-else  class="input-new">
         <div @change="setNote()">
             <input type="text" v-model="data.title">
             <input type="text" v-model="data.url">

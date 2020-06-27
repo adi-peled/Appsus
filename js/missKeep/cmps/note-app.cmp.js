@@ -16,21 +16,24 @@ export default {
 
 <div  class="note-app-container ">
 
+<h1 class="title-app"> note app </h1>
+
     <note-filter @filter="setFilter"   > </note-filter>
-    create new note :
+   <h1 class="create-title"> create new note :  </h1>
     <div  class="btns-new-note "   > 
-            <button class="btn-new-note" @click="chooseType('noteText')">text note</button>
-            <button class="btn-new-note" @click="chooseType('noteImg')">image note</button>
-            <button class="btn-new-note" @click="chooseType('noteTodos')">list note</button>
-            <button class="btn-new-note" @click="chooseType('noteVideo')">video note</button>
+            <button class="btn-new-note" @click="chooseType('noteText')"><img src="./img/text.png"></button>
+            <button class="btn-new-note" @click="chooseType('noteImg')"><img src="./img/image.png"></button>
+            <button class="btn-new-note" @click="chooseType('noteTodos')"><img src="./img/list.png"></button>
+            <button class="btn-new-note" @click="chooseType('noteVideo')"> <img src="./img/youtube.png"></button>
       </div>
           <note-text @setVal="setNote" @editDone="editDone" :noteToEdit="noteToEdit" v-if="(noteType==='noteText')"> </note-text>
           <note-img @setVal="setNote" :noteToEdit="noteToEdit" v-if="(noteType==='noteImg')"> </note-img>
           <note-todos  @editDone="editDone" @setVal="setNote" :noteToEdit="noteToEdit" v-if="(noteType==='noteTodos')"> </note-todos>
           <note-video  @editDone="editDone" @setVal="setNote"  v-if="(noteType==='noteVideo')"> </note-video>
-
+<div class="btn-save-close">
           <button v-if="onNewNote" @click="saveNote">save</button>
           <button v-if="onNewNote" @click="close">close </button>
+          </div>
           <note-list :notes="notesToShow" @editNote="onEditNote"> </note-list>
           </div>
   </section>  

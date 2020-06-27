@@ -7,7 +7,6 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
-    overflow: hidden;
     height: 100vh;
 }
 
@@ -16,6 +15,8 @@ button {
     border: 2px solid white;
     color: white;
     margin: 7px;
+    min-width: fit-content;
+    
 }
 
 * {

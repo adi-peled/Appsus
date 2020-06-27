@@ -7,25 +7,23 @@ export default {
   template: `
   <section class="note-todos">
 
+
   <ul v-if="info" class="todos-container container" :style="{backgroundColor:bgc}">
 
-      <li v-for="(todo,idx) in  info.todos" :class="{done:info.todos[idx].isDone}" @click="done(idx)">
-          {{todo.txt}}
-      </li>
-      <div  class="btns-note" >   
+  <li v-for="(todo,idx) in  info.todos" :class="{done:info.todos[idx].isDone}" @click="done(idx)">
+      {{todo.txt}}
+  </li>
+  <div class="btns-note">
       <div @click="updatePinned" class="pinned">
-
-          <span v-if="info.isPinned">      <img src="./img/pinned-not.png">     </span>
-          <span v-else>    <img src="./img/not-pinned-not.png">  </span>
+          <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
+          <span v-else> <img src="./img/not-pinned-not.png"> </span>
       </div>
-   
-
       <button class="btn-edit" @click="editNote"> edit </button>
       <button class="btn-delete" @click="deleteNote"> delete </button>
-      <input v-model="bgc" type="color">  </input>
-      </div>
-  </ul>
-  <div v-else>
+      <input v-model="bgc" type="color"> </input>
+  </div>
+</ul>
+  <div v-else  class="input-new">
 
       <ul v-if="noteToEdit&&onEdit">
 

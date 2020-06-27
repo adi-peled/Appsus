@@ -11,18 +11,20 @@ export default {
         <div @click="updatePinned">
         </div>
         <div class="btns-note">
-            <button class="btn-delete" @click="deleteNote"> delete </button>
-            <button class="btn-edit" @click="editNote"> edit </button>
-            <div @click="updatePinned" class="pinned">
-
+        <div class="pinned">
           <span v-if="info.isPinned">      <img src="./img/pinned-not.png">     </span>
           <span v-else>    <img src="./img/not-pinned-not.png">  </span>
+          </div>
+          <button class="btn-edit" @click="editNote"> edit </button>
+            <button class="btn-delete" @click="deleteNote"> delete </button>
+            <div @click="updatePinned" class="pinned">
+
       </div>
             <input class="input-color" v-model="bgc" type="color"> </input>
         </div>
     </div>
-    <div v-else>
-        <div v-if="noteToEdit&&onEdit">
+    <div v-else  class="input-new">
+        <div v-if="noteToEdit&&onEdit" >
             <input type="text" v-model="noteToEditCopy.info.txt" @change="setNote"> 
             <button  @click="updateNote"  > save </button>
         </div>

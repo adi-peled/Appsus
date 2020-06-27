@@ -1,22 +1,15 @@
 export default {
   template: `
           <section class="note-filter">
-              <h2  class="title-filter">    notes type   </h2>
               <div  class="btns-filter" >
-              <button class="btn-filter" @click="filter('')"  > all lists   </button> 
+              <button class="btn-filter" @click="filter('')"  > all list   </button> 
               <button class="btn-filter" @click="filter('noteTodos')"  > only lists   </button> 
               <button class="btn-filter"  @click="filter('noteText')" > only text   </button> 
               <button class="btn-filter"  @click="filter('noteImg')" > only images   </button> 
               </div>
-
-
               <div class="search"   v-if="filterType" >  
               search: <input v-model="searchBytxt"   placeholder="enter text"  @input="filter"  type="text">
               </div>
-
-
-
-
           </section>
       `,
   data() {
