@@ -6,7 +6,7 @@ export default {
             <div class="home-page-routes">
                <router-link to="/note"><img title="Note App" src="/img/note.png"></router-link>  
                <router-link to="/book"><img title="Book App" src="/img/book.png"> </router-link>  
-               <router-link to="/email"><img title="Email App" src="/img/email.png"></router-link>  
+               <router-link to="/email/inbox"><img title="Email App" src="/img/email.png"></router-link>  
                
 
             </div>
