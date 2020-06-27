@@ -1,17 +1,15 @@
-
-
-.note-app{
+.note-app {
     min-height: 500px;
 }
-.on-modal-open{
-    background-color: lightgray;
-    opacity: 0.4;
+
+.note-app-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px;
 }
 
 
+/* 450 */
 
-.btn-new-note{
 
-width: 100px;
-
-}
+/* @media screen (max-width) */

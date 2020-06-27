@@ -4,15 +4,14 @@ export default {
     props: ['info', 'idx', 'noteToEdit'],
     name: 'note-img',
     template: `
-    <section class="note-img">
-    <div class="img-container" v-if="info" :style="{backgroundColor:bgc}">
+    <section class="note-img ">
+    <div class="img-container container" v-if="info" :style="{backgroundColor:bgc}">
         {{info.title}} <img :src="info.url">
-        <div class="btns">
+        <div class="btns-note">
             <div @click="updatePinned" class="pinned">
                 <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
                 <span v-else> <img src="./img/not-pinned-not.png"> </span>
             </div>
-
             <button class="btn-edit" @click="editNote"> edit </button>
             <button class="btn-delete" @click="deleteNote"> delete </button>
             <input v-model="bgc" type="color"> </input>

@@ -6,13 +6,38 @@
 @import './cmps/note-todos.css';
 @import './cmps/note-img.css';
 @import './cmps/note-todos.css';
+button:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
 
-button{
-cursor: pointer;
-border-radius: 15px;
-background-color: aquamarine;
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom :2px solid white;
+    color: white;
 
 }
-button:hover{
-    background-color: lightgrey;
+
+input::placeholder {
+    color: white;
+}
+
+
+.btns-note {
+    display: flex;
+}
+
+.btns-note input {
+    padding: 0;
+    border: 0;
+    height: 2.3em;
+    width: 2.3em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }

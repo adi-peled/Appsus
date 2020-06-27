@@ -1,11 +1,23 @@
 @import './missBooks/books-main.css';
 @import './missEmail/email-main.css';
 @import './missKeep/keep-main.css';
-html,
-body {
+html, body {
     background-image: url('../img/bgc6.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
     overflow: hidden;
+    height: 100vh;
+}
+
+
+button{
+    border-radius: 15px;
+    border:2px solid white;
+    color: white; 
+    margin: 7px;
+}
+*{
+   text-transform:capitalize ;
+    font-family: georgia;
 }

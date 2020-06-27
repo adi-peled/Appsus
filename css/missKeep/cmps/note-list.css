@@ -1,13 +1,13 @@
 .note-card{
     height: 200px;
-    width: 150px;
+    width: 200px;
     border: rgb(245, 187, 100) 1px solid;
 }
 
 
 .note-list{
     display: grid;
-    grid-template-columns: repeat(auto-fill,150px);
+    grid-template-columns: repeat(auto-fill,200px);
     gap:10px
 }
 

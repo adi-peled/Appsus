@@ -5,12 +5,12 @@ export default {
     name: 'note-text',
     props: ['info', 'idx', 'noteToEdit'],
     template: `
-    <section class="note-txt">
-    <div v-if="info" class="text-container" :style="{backgroundColor:bgc}">
+    <section class="note-txt ">
+    <div v-if="info" class="text-container container"    :style="{backgroundColor:bgc}">
         {{info.txt}}
         <div @click="updatePinned">
         </div>
-        <div class="btns">
+        <div class="btns-note">
             <button class="btn-delete" @click="deleteNote"> delete </button>
             <button class="btn-edit" @click="editNote"> edit </button>
             <div @click="updatePinned" class="pinned">
@@ -26,7 +26,7 @@ export default {
             <input type="text" v-model="noteToEditCopy.info.txt" @change="setNote"> 
             <button  @click="updateNote"  > save </button>
         </div>
-        <input v-else type="text" v-model="inf.txt" @change="setNote"> 
+        <input v-else type="text" v-model="inf.txt" @change="setNote"  placeholder="enter text"> 
     </div>
 </section>
 

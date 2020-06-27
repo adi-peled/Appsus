@@ -13,9 +13,12 @@ export default {
     name: 'note-app',
     template: `
     <section  class="note-app"    >
+
+<div  class="note-app-container ">
+
     <note-filter @filter="setFilter"   > </note-filter>
-       <div>
-           create new note :
+    create new note :
+    <div  btns-new-note    > 
             <button class="btn-new-note" @click="chooseType('noteText')">text note</button>
             <button class="btn-new-note" @click="chooseType('noteImg')">image note</button>
             <button class="btn-new-note" @click="chooseType('noteTodos')">list note</button>
@@ -29,6 +32,7 @@ export default {
           <button v-if="onNewNote" @click="saveNote">save</button>
           <button v-if="onNewNote" @click="close">close </button>
           <note-list :notes="notesToShow" @editNote="onEditNote"> </note-list>
+          </div>
   </section>  
     `,
     data() {

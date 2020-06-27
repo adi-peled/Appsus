@@ -10,8 +10,8 @@ export default {
               </div>
 
 
-              <div class="search" >  
-              search: <input v-model="searchBytxt"  v-if="filterType"   @input="filter"  type="text">
+              <div class="search"   v-if="filterType" >  
+              search: <input v-model="searchBytxt"   placeholder="enter text"  @input="filter"  type="text">
               </div>
 
 

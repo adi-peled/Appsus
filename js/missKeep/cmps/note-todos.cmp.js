@@ -7,11 +7,12 @@ export default {
   template: `
   <section class="note-todos">
 
-  <ul v-if="info" class="todos-container" :style="{backgroundColor:bgc}">
+  <ul v-if="info" class="todos-container container" :style="{backgroundColor:bgc}">
 
       <li v-for="(todo,idx) in  info.todos" :class="{done:info.todos[idx].isDone}" @click="done(idx)">
           {{todo.txt}}
       </li>
+      <div  class="btns-note" >   
       <div @click="updatePinned" class="pinned">
 
           <span v-if="info.isPinned">      <img src="./img/pinned-not.png">     </span>
@@ -22,6 +23,7 @@ export default {
       <button class="btn-edit" @click="editNote"> edit </button>
       <button class="btn-delete" @click="deleteNote"> delete </button>
       <input v-model="bgc" type="color"> {{bgc}} </input>
+      </div>
   </ul>
   <div v-else>
 
@@ -34,7 +36,7 @@ export default {
       </ul>
       <ul @change="setNote" v-else>
           <li v-for="(num,idx) in listLength">
-              <input v-model="inf.todos[idx].txt" type="text" />
+              <input v-model="inf.todos[idx].txt" type="text"   placeholder="enter text"    />
           </li>
           <button v-if="checkListLength" @click="updateLength(1,idx)"> + </button>
           <button v-if="checkListLength" @click="updateLength(-1,idx)"> - </button>
