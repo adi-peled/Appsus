@@ -3,7 +3,7 @@ import { eventBus } from '../../main-services/eventBus.js'
 export default {
     name: 'eMailDetails',
     template: `
-        <section v-if="!mail.isDraft">
+        <section class="reading" v-if="!mail.isDraft">
             <h1>Subject: {{mail.subject}}</h1>
             <h3>Mail: {{mail.fromMail}}</h3>
             <h3>Sent At: {{hour}}:{{minutes}}</h3>

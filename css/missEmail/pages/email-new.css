@@ -1,7 +1,7 @@
 .new-form {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 80%;
 }
 
 .button-div {
@@ -11,12 +11,13 @@
 
 .new-form button {
     width: 20%;
-    background-color: whitesmoke;
+    border: 2px white solid;
+    color: white;
+    margin: 7px;
     border-radius: 40px;
     padding: 10px;
     margin-top: 10px;
     outline: none;
-    color: grey;
 }
 
 .new-form button:hover {
@@ -47,4 +48,15 @@ textarea,
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 980px) {
+    .new-form {
+        width: 90%;
+        margin: 25px;
+    }
+    .new-form button {
+        width: 40%;
+        height: 20%;
+    }
 }

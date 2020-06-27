@@ -24,7 +24,14 @@ export default {
             .then(res => Utils.storeToStorage('emails', res))
 
         this.mails = Utils.loadFromStorage('emails')
-        console.log(this.mails);
+        if (!this.mails || !this.mails.length)
+            emailsService.getEmails()
+            .then(res => this.mails = res)
+        this.mails = this.mails.filter(mail => {
+            if (!mail.isDraft) {
+                return mail
+            }
+        })
 
     },
     mounted() {
@@ -36,7 +43,11 @@ export default {
             if (!this.mails || !this.mails.length)
                 emailsService.getEmails()
                 .then(res => this.mails = res)
-            console.log('getNewList In list', this.mails);
+            this.mails = this.mails.filter(mail => {
+                if (!mail.isDraft) {
+                    return mail
+                }
+            })
         },
         search() {
             if (this.searchWord === '') {
