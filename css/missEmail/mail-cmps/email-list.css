@@ -13,6 +13,7 @@
     outline: none;
     background-color: transparent;
     border: none;
+    color: white;
     border-bottom: solid white 2px;
 }
 
@@ -22,6 +23,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .mails {
@@ -32,6 +34,12 @@
     margin: 10px;
     background-color: white;
     opacity: 50%;
+}
+
+input,
+select,
+textarea {
+    color: white;
 }
 
 .mails:hover {

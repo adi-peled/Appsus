@@ -16,13 +16,14 @@
     margin: 7px;
     border-radius: 40px;
     padding: 10px;
+    font-size: 15px;
     margin-top: 10px;
     outline: none;
 }
 
 .new-form button:hover {
-    background-color: grey;
-    color: whitesmoke;
+    background-color: white;
+    color: rgb(64, 147, 224);
 }
 
 .new-form input,

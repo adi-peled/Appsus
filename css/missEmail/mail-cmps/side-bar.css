@@ -30,6 +30,7 @@
 
 progress {
     margin-left: 20px;
+    width: 90%;
 }
 
 @media (max-width: 980px) {
