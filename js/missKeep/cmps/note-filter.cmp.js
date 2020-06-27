@@ -21,14 +21,19 @@ export default {
       `,
   data() {
     return {
-      searchBytxt:''
+      searchBytxt: '',
+      filterType: ''
     };
   },
   methods: {
     filter(type) {
-      this.$emit("filter", type,this.searchBytxt)
+      if (typeof type === "string") {
+        this.$emit("filter", type, this.searchBytxt)
+        this.filterType = type
+      }
+      else this.$emit("filter", this.filterType, this.searchBytxt)
     },
-   
+
   },
 };
 

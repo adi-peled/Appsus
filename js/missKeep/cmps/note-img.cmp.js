@@ -6,8 +6,12 @@ export default {
     template: `
     <section class="note-img">
 
-<div v-if="info"  :style="{backgroundColor:bgc}"  >
+<div     class="img-container"   v-if="info"  :style="{backgroundColor:bgc}"  >
              {{info.title}}   <img :src="info.url">  
+             <div   @click="updatePinned"   class="pinned"  >
+             <span    v-if="info.isPinned">   📌   </span>
+             <span      v-else>  notPinned </span>
+                      </div>
   <button class="btn-delete" @click="deleteNote">  delete  </button>
   <input  v-model="bgc"  type="color">   </input>
 
@@ -37,9 +41,12 @@ export default {
         },
         deleteNote() {
             noteService.deleteNote(this.idx)
-        }
+        },
+        updatePinned(){
+            this.info.isPinned=!this.info.isPinned
+          }
+
     },
     created(){
-        console.log(this.bgc)
     }
 }

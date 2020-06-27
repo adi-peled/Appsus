@@ -2,61 +2,75 @@ import { Utils } from "../../main-services/utils.js"
 import { noteService } from "../services/note-service.js"
 import noteEdit from './note-edit.cmp.js'
 export default {
-
     name: 'note-text',
-    props: ['info', 'idx'],
+    props: ['info', 'idx', 'noteToEdit'],
     template: `
-    <section class="note-txt"    >
-        <div v-if="info"  class="text-container"    :style="{backgroundColor:bgc}">
-            {{info.txt}}
-
-            <div class="btns">  
-            <button class="btn-delete" @click="deleteNote">  delete  </button>
-            <button class="btn-edit" @click="editNote">  edit  </button>
-  <input     class="input-color"       v-model="bgc"  type="color">   {{bgc}} </input>
-  </div>
-            <note-edit  v-if="isEdit"   :info="info">     </note-edit>
-
-
+    <section class="note-txt">
+    <div v-if="info" class="text-container" :style="{backgroundColor:bgc}">
+        {{info.txt}}
+        <div @click="updatePinned">
         </div>
-        <div v-else> 
-            <input type="text" v-model="inf.txt" @change="setNote" placeholder="enter your text"> 
-           
+        <div class="btns">
+            <button class="btn-delete" @click="deleteNote"> delete </button>
+            <button class="btn-edit" @click="editNote"> edit </button>
+            <div @click="updatePinned" class="pinned">
+                <span v-if="info.isPinned"> 📌 </span>
+                <span v-else> notPinned </span>
+            </div>
+            <input class="input-color" v-model="bgc" type="color"> </input>
         </div>
+    </div>
+    <div v-else>
+        <div v-if="noteToEdit&&onEdit">
+            <input type="text" v-model="noteToEditCopy.info.txt" @change="setNote"> 
+            <button  @click="updateNote"  > save </button>
+        </div>
+        <input v-else type="text" v-model="inf.txt" @change="setNote"> 
+    </div>
+</section>
 
-    </section>    
     `,
     data() {
         return {
             inf: {
                 txt: '',
             },
-            isEdit: false,
-            bgc: ''
+            bgc: '',
+            onEdit: false,
+            noteToEditCopy: this.noteToEdit,
+            onAddNote: false,
+            
         }
-
     },
     methods: {
         setNote() {
             this.$emit('setVal', this.inf)
-
         },
-
         deleteNote() {
             noteService.deleteNote(this.idx)
         },
         editNote() {
-            this.isEdit = true
+            this.$emit('editNote', this.info.id)
+            this.onAddNote=false
         },
-
-
-
+        updatePinned() {
+            console.log(this.info.isPinned)
+            this.info.isPinned = !this.info.isPinned
+        },
+        updateNote() {
+            noteService.updateNote(this.noteToEditCopy)
+            this.onEdit = false
+            this.noteToEditCopy = null
+            this.$emit('editDone', this.noteToEditCopy)
+        }
     },
-
-
     created() {
+        if (this.noteToEditCopy) {
+            this.onEdit = true
+        }
+      
     },
     components: {
         noteEdit
-    }
+    },
 }

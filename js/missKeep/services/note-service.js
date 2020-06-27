@@ -3,7 +3,10 @@ import { Utils } from "../../main-services/utils.js";
 export const noteService = {
     getNotes,
     addNote,
-    deleteNote
+    deleteNote,
+    getNoteById,
+    updateNote
+
 }
 
 function getNotes() {
@@ -17,7 +20,21 @@ function getNotes() {
 
 }
 
+
+function updateNote(newNote) {
+    console.log(newNote)
+
+    var idx = gNotes.findIndex((note) => note.info.id === newNote.info.id)
+    gNotes.splice(idx, 1, newNote)
+    Utils.storeToStorage('notes', gNotes)
+}
+
+
+
 function addNote(newNote) {
+    console.log(newNote)
+    newNote.info.id = Utils.getRandomId()
+    newNote.info.isPinned = false
     gNotes.push(newNote)
     Utils.storeToStorage('notes', gNotes)
 }
@@ -27,10 +44,18 @@ function deleteNote(idx) {
     Utils.storeToStorage('notes', gNotes)
 }
 
+function getNoteById(id) {
+    var editNote = gNotes.find((note) => note.info.id === id)
+    return Promise.resolve(editNote);
+
+}
+
+
 var gNotes = [
     {
         type: "noteTodos",
         info: {
+            id: Utils.getRandomId(),
             isPinned: false,
             todos: [
                 { txt: "clean my room", isDone: false },
@@ -40,8 +65,8 @@ var gNotes = [
     },
     {
         type: "noteTodos",
-
         info: {
+            id: Utils.getRandomId(),
             isPinned: false,
             todos: [
                 { txt: "take out the dog", isDone: false },
@@ -51,15 +76,17 @@ var gNotes = [
     },
     {
         type: "noteText",
-
         info: {
+            id: Utils.getRandomId(),
             isPinned: true,
             txt: "hi there!"
         }
     },
     {
         type: "noteImg",
+
         info: {
+            id: Utils.getRandomId(),
             isPinned: false,
             url: "./img/1.png",
             title: "orange monster",
@@ -72,6 +99,7 @@ var gNotes = [
     {
         type: "noteImg",
         info: {
+            id: Utils.getRandomId(),
             isPinned: true,
             url: "./img/2.png",
             title: "purple monster",
