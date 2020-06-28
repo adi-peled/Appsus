@@ -28,7 +28,7 @@ export default {
             emailsService.getEmails()
             .then(res => this.mails = res)
         this.mails = this.mails.filter(mail => {
-            if (!mail.isDraft) {
+            if (!mail.isDraft && !mail.isSent) {
                 return mail
             }
         })

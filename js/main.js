@@ -27,31 +27,20 @@ new Vue({
             this.isHomePage = false
         },
         showMessege(msg) {
-            let timerInterval
-            Swal.fire({
-                title: 'Messege',
-                html: msg,
-                timer: 700,
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
                 timerProgressBar: true,
-                onBeforeOpen: () => {
-                    Swal.showLoading()
-                    timerInterval = setInterval(() => {
-                        const content = Swal.getContent()
-                        if (content) {
-                            const b = content.querySelector('b')
-                            if (b) {
-                                b.textContent = Swal.getTimerLeft()
-                            }
-                        }
-                    }, 100)
-                },
-                onClose: () => {
-                    clearInterval(timerInterval)
+                onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
                 }
-            }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('I was closed by the timer')
-                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: msg
             })
         }
 

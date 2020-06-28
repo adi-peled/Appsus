@@ -55,6 +55,11 @@
     height: 100%;
 }
 
+.swal2-title {
+    font-size: 20px;
+    font-family: pragati;
+}
+
 @media (max-width:650px) {
     .home-page-sentence {
         font-size: 30px;
@@ -63,7 +68,7 @@
         height: 200px;
     }
     .home-page {
-        height: 100vh;
+        min-height: 100vh;
     }
     .apsus {
         height: 70px;
@@ -82,4 +87,9 @@
     .home-page-routes a p {
         font-size: 15px;
     }
+}
+
+@font-face {
+    font-family: pragati;
+    src: url(../fonts/PragatiNarrow-Regular.ttf)
 }
