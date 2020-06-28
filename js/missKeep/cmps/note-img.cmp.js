@@ -17,7 +17,7 @@ export default {
 
             <div class="color-container">
                <img src="./img/color.png">
-               <input class="input-color" v-model="bgc" type="color"> </input>
+               <input   @change="updateBgc" class="input-color" v-model="bgc" type="color"> </input>
             </div>
         </div>
     </div>
@@ -69,6 +69,9 @@ export default {
             this.onEdit = false
             this.noteToEditCopy = null
             this.$emit('editDone', this.noteToEditCopy)
+        },
+        updateBgc() {
+            console.log(this.bgc)
         }
     },
     created() {

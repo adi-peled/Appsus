@@ -60,7 +60,6 @@
     cursor: pointer;
 }
 
-
 .btns-new-note .img-container img {
     height: 2.8em;
     width: 2.8em;
@@ -80,5 +79,15 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+    }
+    .create-container {
+        width: 150px;
+        margin: 0px;
+        margin-bottom: 15px;
+        height: 100px;
+        padding-left: 10px;
+    }
+    .img-container {
+        margin: 5px;
     }
 }

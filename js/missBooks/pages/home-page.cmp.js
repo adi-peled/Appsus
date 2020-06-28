@@ -16,5 +16,8 @@ export default {
         updateIsHomePage() {
             eventBus.$emit('updateHomePage')
         }
+    },
+    created() {
+        this.$emit('onHomePage')
     }
 }
