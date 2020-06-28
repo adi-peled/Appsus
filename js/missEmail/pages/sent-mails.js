@@ -22,7 +22,7 @@ export default {
         this.mails = this.mails.filter(mail => {
             if (mail.isSent && !mail.isDraft) {
                 console.log(mail);
-                return mail
+                return { mail }
             }
         })
     },
