@@ -19,7 +19,7 @@ export default {
 
     <note-filter @filter="setFilter"   > </note-filter>
     <div class="create-container" >
-   <span class="create-title"> create new note :  </span>
+   <span class="create-title"> Create New Note :  </span>
     <div  class="btns-new-note"   > 
             <div class="img-container">  <img src="./img/text.png"    @click="chooseType('noteText')">    </div>
             <div class="img-container">   <img src="./img/image.png"   @click="chooseType('noteImg')"> </div>
@@ -74,6 +74,7 @@ export default {
         setNote(info) {
             console.log(info)
             this.newCurrNote.info = info
+            this.newCurrNote.info.isPinned = false
         },
         setFilter(filterByType, txt) {
             this.filterByType = filterByType;

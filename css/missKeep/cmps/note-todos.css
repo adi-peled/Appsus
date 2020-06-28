@@ -6,8 +6,9 @@
     align-items: flex-start;
     flex-direction: column;
     height: 100%;
-    border-radius: 10%;
+    border-radius: 18px;
     border: white 1px solid;
+    width: 250px;
    
 }
 
