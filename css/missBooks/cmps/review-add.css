@@ -1,6 +1,5 @@
 
 
-.review-add{
-    background-color: rgb(103, 184, 157);
-    height: 300px;
+.review-add textarea{
+ border: solid 1px white;
 }

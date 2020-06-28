@@ -18,14 +18,3 @@ export default {
         }
     }
 }
-
-
-{
-    /* <img src="/img/note.png">
-    <img src="/img/email.png">
-    <img src="/img/book.png"> */
-}
-
-/* <router-link to="/note">note </router-link> |
-<router-link to="/book"> book App </router-link> |
-<router-link to="/email/inbox"> email</router-link>   */
