@@ -5,32 +5,32 @@ export default {
     name: 'note-text',
     props: ['info', 'idx', 'noteToEdit'],
     template: `
+  
     <section class="note-txt ">
-    <div v-if="info" class="text-container container"    :style="{backgroundColor:bgc}">
-        {{info.txt}}
-        <div @click="updatePinned">
+        <div v-if="info" class="text-container container" :style="{backgroundColor:bgc}">
+            {{info.txt}}
+            <div class="btns-note">
+                <div @click="updatePinned"  class="pinned"  >
+                    <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
+                    <span v-else> <img src="./img/not-pinned-not.png"> </span>
+                </div>
+                <button class="btn-edit" @click="editNote"> edit </button>
+                <button class="btn-delete" @click="deleteNote"> delete </button>
+                <div class="color-container">
+                    <img src="./img/color.png">
+                    <input class="input-color" v-model="bgc" type="color"> </input>
+                </div>
+            </div>
         </div>
-        <div class="btns-note">
-        <div class="pinned">
-          <span v-if="info.isPinned">      <img src="./img/pinned-not.png">     </span>
-          <span v-else>    <img src="./img/not-pinned-not.png">  </span>
-          </div>
-          <button class="btn-edit" @click="editNote"> edit </button>
-            <button class="btn-delete" @click="deleteNote"> delete </button>
-            <div @click="updatePinned" class="pinned">
 
-      </div>
-            <input class="input-color" v-model="bgc" type="color"> </input>
+        <div v-else class="input-new">
+            <div v-if="noteToEdit&&onEdit">
+                <input type="text" v-model="noteToEditCopy.info.txt" @change="setNote">
+                <button @click="updateNote"> save </button>
+            </div>
+            <input v-else type="text" v-model="inf.txt" @change="setNote" placeholder="enter text">
         </div>
-    </div>
-    <div v-else  class="input-new">
-        <div v-if="noteToEdit&&onEdit" >
-            <input type="text" v-model="noteToEditCopy.info.txt" @change="setNote"> 
-            <button  @click="updateNote"  > save </button>
-        </div>
-        <input v-else type="text" v-model="inf.txt" @change="setNote"  placeholder="enter text"> 
-    </div>
-</section>
+    </section>
 
     `,
     data() {

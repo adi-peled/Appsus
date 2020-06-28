@@ -6,8 +6,8 @@ import { bookService } from "../services/book.service.js";
 
 export default {
   template: `
-<section> 
-      <div class="flex">
+<section class="book-app"  > 
+      <div class=" search-add">
         <book-filter @filter="setFilter"></book-filter>
         <add-book> </add-book>
       </div>

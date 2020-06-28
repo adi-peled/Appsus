@@ -8,14 +8,43 @@
     padding: 10px;
 }
 
-.title-app {
-    text-align: center;
-    font-size: 30px;
-    margin: 0em;
+.create-container {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 15px;
+    height: 85px;
+}
+
+.color-container {
+    position: relative;
+}
+
+.color-container img {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+}
+
+.color-container input {
+    opacity: 0;
 }
 
 .create-title {
-    text-align: center;
+    align-self: center;
+}
+
+.btns-new-note div img {
+    cursor: pointer;
+    border: 0em;
+    margin-left: 50px;
+}
+
+.btns-new-note div img:hover {
+    width: 55px;
+    height: 55px;
+    transition: 0.5s;
 }
 
 .btn-save-close {
@@ -27,24 +56,23 @@
     text-align: center;
 }
 
-.btns-new-note {
-    padding: 15px;
-    text-align: center;
-}
-.btns-new-note button{
-border:0px
+.btns-note input {
+    cursor: pointer;
 }
 
-
-.btns-new-note img{
+.btns-new-note .img-container img {
     height: 2.8em;
     width: 2.8em;
 }
 
-.pinned{
-    cursor: pointer;
+.btns-new-note {
+    width: 400px;
+    display: flex;
 }
 
+.pinned {
+    cursor: pointer;
+}
 
 @media (max-width:500px) {
     .btns-new-note {
@@ -52,5 +80,14 @@ border:0px
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
     }
+    .create-container {
+        width: 150px;
+        margin: 0px;
+        margin-bottom: 15px;
+        height: 100px;
+        padding-left: 10px;
+    }
+    .img-container {
+        margin: 5px;
+    }
 }
-

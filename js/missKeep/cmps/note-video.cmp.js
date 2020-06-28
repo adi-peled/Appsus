@@ -9,7 +9,7 @@ export default {
     <div v-if="info" class="video-container container" :style="{backgroundColor:bgc}">
         {{info.title}}
         <div class="iframe-container">
-            <iframe width="150" height="100" :src="info.url" frameborder="0" allow="accelerometer; 
+            <iframe width="300" height="200" :src="info.url" frameborder="0" allow="accelerometer; 
         autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="btns-note">
@@ -20,7 +20,10 @@ export default {
             <button class="btn-edit" > edit </button>
 
             <button class="btn-delete" @click="deleteNote"> delete </button>
-            <input v-model="bgc" type="color"> </input>
+            <div class="color-container">
+            <img src="./img/color.png">
+            <input class="input-color" v-model="bgc" type="color"> </input>
+        </div>
         </div>
     </div>
     <div v-else  class="input-new">

@@ -8,20 +8,19 @@ new Vue({
     router: myRouter,
     template: `
     <section>
-    <app-header  v-if="!isHomePage"   @homePage="updateHomePage">  </app-header>
+    <app-header   v-if="!isHomePage"       @homePage="updateHomePage">  </app-header>
     <main>
-        <router-view />
+        <router-view  @onHomePage="updateHomePage">      </router-view>
     </main>
       
 
     </section>
     `,
     data: {
-        isHomePage: true
+        isHomePage: false
     },
     methods: {
         updateHomePage() {
-            console.log('hhh')
             this.isHomePage = true
         },
         updateNotHomePage() {
@@ -63,5 +62,6 @@ new Vue({
     created() {
         eventBus.$on('updateHomePage', this.updateNotHomePage)
         eventBus.$on('alertMsg', this.showMessege)
+
     }
 })
