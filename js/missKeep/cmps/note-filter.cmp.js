@@ -4,9 +4,9 @@ export default {
               <div  class="btns-filter" >
              <div   class="btns-filter-container" >
            <div class="filter" @click="filter('')"  > All notes     </div> 
-           <div class="filter" @click="filter('noteTodos')"  > Only lists      </div> 
-           <div class="filter"  @click="filter('noteText')" > Only text      </div> 
-           <div class="filter"  @click="filter('noteImg')" > Only images    </div> 
+           <div class="filter" @click="filter('noteTodos')"  >  Lists      </div> 
+           <div class="filter"  @click="filter('noteText')" >  Texts      </div> 
+           <div class="filter"  @click="filter('noteImg')" > Images    </div> 
               </div>
               </div>
               <div class="search"    v-if="filterType" >  

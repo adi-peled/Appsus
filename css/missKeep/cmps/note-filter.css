@@ -17,6 +17,7 @@
   padding: 15px;
   border-right: white 1px solid;
   cursor: pointer;
+  text-align: center;
 }
 
 .filter:hover {
@@ -38,7 +39,10 @@
     height: 80px;
   }
   .btns-filter-container {
-    margin-right: 5px;
+    width: 350px;
+  }
+  .filter {
+    border-bottom: white 1px solid;
   }
 }
 
