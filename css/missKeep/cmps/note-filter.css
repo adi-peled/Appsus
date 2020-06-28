@@ -12,7 +12,7 @@
 }
 
 .filter {
-  width: 25%;
+  width: 100px;
   height: 100%;
   padding: 15px;
   border-right: white 1px solid;
@@ -33,7 +33,14 @@
   font-size: 22px;
 }
 
-@media (max-width:500px) {}
+@media (max-width:500px) {
+  .btns-filter {
+    height: 80px;
+  }
+  .btns-filter-container {
+    margin-right: 5px;
+  }
+}
 
 @media (max-width:360px) {
   .btns-filter {

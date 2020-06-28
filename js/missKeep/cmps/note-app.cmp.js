@@ -21,10 +21,10 @@ export default {
     <div class="create-container" >
    <span class="create-title"> Create New Note :  </span>
     <div  class="btns-new-note"   > 
-            <div class="img-container">  <img src="./img/text.png"    @click="chooseType('noteText')">    </div>
-            <div class="img-container">   <img src="./img/image.png"   @click="chooseType('noteImg')"> </div>
-            <div class="img-container">   <img src="./img/list.png"    @click="chooseType('noteTodos')"> </div>
-            <div class="img-container">   <img src="./img/youtube.png" @click="chooseType('noteVideo')"> </div>
+            <div class="img-container-new">  <img src="./img/text.png"    @click="chooseType('noteText')">    </div>
+            <div class="img-container-new">   <img src="./img/image.png"   @click="chooseType('noteImg')"> </div>
+            <div class="img-container-new">   <img src="./img/list.png"    @click="chooseType('noteTodos')"> </div>
+            <div class="img-container-new">   <img src="./img/youtube.png" @click="chooseType('noteVideo')"> </div>
       </div>
       </div>
           <note-text @setVal="setNote" @editDone="editDone" :noteToEdit="noteToEdit" v-if="(noteType==='noteText')"> </note-text>

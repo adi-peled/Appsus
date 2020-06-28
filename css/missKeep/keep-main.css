@@ -45,3 +45,8 @@ input::placeholder {
     padding: 15px;
     width: 250px;
 }
+
+
+.note-app-container{
+    font-size: 15px;
+}

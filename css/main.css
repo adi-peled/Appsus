@@ -2,6 +2,11 @@
 @import './missEmail/email-main.css';
 @import './missKeep/keep-main.css';
 @import './home-page.css';
+@font-face {
+    font-family: pragati;
+    src: url(../fonts/PragatiNarrow-Regular.ttf)
+}
+
 html, body {
     background-image: url('../img/bgc6.jpg');
     background-repeat: no-repeat;
@@ -19,6 +24,7 @@ button {
 
 * {
     box-sizing: border-box;
+    font-family: pragati;
 }
 
 input {
