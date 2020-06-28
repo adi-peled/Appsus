@@ -1,13 +1,20 @@
 export default {
     template: `
-          <header  class="app-header"  >
-          <nav class="email-head">
-              <router-link to="/note">note </router-link> |
-              <router-link to="/book"> book App </router-link> | 
-             <router-link to="/"  > <span  @click="goHome" >  home Page </span></router-link> | 
-              <router-link to="/email/inbox"> email</router-link>    
+          <nav class="app-header">
+              <div>
+                <router-link to="/note"><p>Note </p> </router-link> 
+            
+            
+                <router-link to="/book"><p> Book App </p></router-link> 
+            
+            
+                <router-link to="/"  > <span  @click="goHome" > <p> Home Page</p> </span></router-link> 
+            
+            
+                <router-link to="/email/inbox"> <p>eMail</p></router-link>    
+</div>
+
           </nav>
-          </header>
       `,
     data() {
         return {

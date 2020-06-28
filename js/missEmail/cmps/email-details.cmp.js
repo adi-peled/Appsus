@@ -4,11 +4,11 @@ export default {
     name: 'eMailDetails',
     template: `
         <section class="reading" v-if="!mail.isDraft">
-            <h1>Subject: {{mail.subject}}</h1>
-            <h3>Mail: {{mail.fromMail}}</h3>
-            <h3>Sent At: {{hour}}:{{minutes}}</h3>
-            <h3>From: {{mail.from}}</h3>
-            <h3>{{mail.body}}</h3>
+            <h1 class="sub" >Subject: {{mail.subject}}</h1>
+            <h3 class="from-mail">Mail: {{mail.fromMail}}</h3>
+            <h3 class="sent-at">Sent At: {{hour}}:{{minutes}}</h3>
+            <h3 class="from-name">From: {{mail.from}}</h3>
+            <h3 class="mail-body">{{mail.body}}</h3>
             <router-link to="/email/inbox"><span @click="onDeleteMail(mail.id)">🗑️</span></router-link>
             <span class="star" v-if="!mail.isSent" @click="starClicked" :class="{starred : mail.isStarred}">★</span>
         </section>
@@ -19,7 +19,7 @@ export default {
                 eMail : <input type="email" placeholder="example@maor&adi.com" v-model="mail.fromMail"/>
                 Subject : <input type="text" placeholder="Subject"  v-model="mail.subject"/>
                 Messege:<textarea  v-model="mail.body" id="w3review" name="w3review" rows="20" cols="" placeholder="Write your messege here"/>
-                <div class="button-div">
+                <div class="button-div"> 
                     <button @click="onSendMail(mail.from,mail.fromMail,mail.subject,mail.body,false)" type="button">Send</button> 
                     <button @click="onSendMail(mail.from,mail.fromMail,mail.subject,mail.body,true)" type="button">Send To Drafts</button> 
                 </div>

@@ -3,3 +3,21 @@
     height: 80%;
     margin: 20px;
 }
+
+.sub {}
+
+.from-mail {
+    border: 1px white solid;
+}
+
+.sent-at {
+    border: 1px white solid;
+}
+
+.from-name {
+    border: 1px white solid;
+}
+
+.mail-body {
+    border: 1px white solid;
+}
