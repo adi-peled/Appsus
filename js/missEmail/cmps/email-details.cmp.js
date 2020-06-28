@@ -6,7 +6,8 @@ export default {
             <section class="reading" v-if="!mail.isDraft">
                 <h1 class="sub" >Subject: {{mail.subject}}</h1>
                 <h3 class="from-mail">Mail: {{mail.fromMail}}</h3>
-                <h3 class="sent-at">Sent At: {{hour}}:{{minutes}}</h3>
+                <h3 class="sent-at">Sent At: {{date}}</h3>
+                <!-- <h3 class="sent-at">Sent At: {{hour}}:{{minutes}}</h3> -->
                 <h3 class="from-name">From: {{mail.from}}</h3>
                 <h3 class="mail-body">{{mail.body}}</h3>
                                     <div>
@@ -39,6 +40,7 @@ export default {
         var { mailId } = this.$route.params
         this.mail = emailsService.getMail(mailId)
         this.isStarred = this.mail.isStarred;
+        this.date = new Date(this.mail.sentAt)
         this.hour = new Date(this.mail.sentAt).getHours()
         this.minutes = new Date(this.mail.sentAt).getMinutes()
 
