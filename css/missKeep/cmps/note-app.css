@@ -14,7 +14,6 @@
     margin: 0 auto;
     padding: 10px;
     padding-bottom: 15px;
-    height: 85px;
 }
 
 .color-container {
@@ -41,9 +40,20 @@
     margin-left: 50px;
 }
 
-.btns-new-note div img:hover {
-    width: 55px;
+.img-container-new img {
+    height: 45px;
+    width: 45px;
+}
+
+.img-container-new {
     height: 55px;
+    width: 55px;
+    margin: 15px;
+}
+
+.btns-new-note div img:hover {
+    width: 50px;
+    height: 50px;
     transition: 0.5s;
 }
 
@@ -84,7 +94,6 @@
         width: 150px;
         margin: 0px;
         margin-bottom: 15px;
-        height: 100px;
         padding-left: 10px;
     }
     .img-container {

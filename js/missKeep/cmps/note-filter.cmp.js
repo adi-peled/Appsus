@@ -2,10 +2,12 @@ export default {
   template: `
           <section class="note-filter">
               <div  class="btns-filter" >
-              <button class="btn-filter" @click="filter('')"  > all notes   </button> 
-              <button class="btn-filter" @click="filter('noteTodos')"  > only lists   </button> 
-              <button class="btn-filter"  @click="filter('noteText')" > only text   </button> 
-              <button class="btn-filter"  @click="filter('noteImg')" > only images   </button> 
+             <div   class="btns-filter-container" >
+           <div class="filter" @click="filter('')"  > All notes     </div> 
+           <div class="filter" @click="filter('noteTodos')"  > Only lists      </div> 
+           <div class="filter"  @click="filter('noteText')" > Only text      </div> 
+           <div class="filter"  @click="filter('noteImg')" > Only images    </div> 
+              </div>
               </div>
               <div class="search"    v-if="filterType" >  
               search: <input v-model="searchBytxt"   placeholder="enter text"  @input="filter"  type="text">

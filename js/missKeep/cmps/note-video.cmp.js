@@ -9,7 +9,7 @@ export default {
     <div v-if="info" class="video-container container" :style="{backgroundColor:bgc}">
         {{info.title}}
         <div class="iframe-container">
-            <iframe width="300" height="200" :src="info.url" frameborder="0" allow="accelerometer; 
+            <iframe width="200" height="150" :src="info.url" frameborder="0" allow="accelerometer; 
         autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="btns-note">

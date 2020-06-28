@@ -2,17 +2,25 @@
   display: flex;
   justify-content: center;
   padding: 15px;
-  height: 80px;
+  height: 100px;
 }
 
-.btn-filter:hover {
-  height: 35px;
+.btns-filter-container {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
-.btn-filter {
-  transition: 0.3s;
-  width: 110px;
-  height: 20px;
+.filter {
+  width: 100px;
+  height: 100%;
+  padding: 15px;
+  border-right: white 1px solid;
+  cursor: pointer;
+}
+
+.filter:hover {
+  background-color: rgba(245, 245, 245, 0.479);
 }
 
 .title-filter {
@@ -27,7 +35,10 @@
 
 @media (max-width:500px) {
   .btns-filter {
-    height: 50px;
+    height: 80px;
+  }
+  .btns-filter-container {
+    margin-right: 5px;
   }
 }
 
