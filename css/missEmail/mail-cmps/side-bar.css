@@ -19,6 +19,7 @@
 .new-mail {
     overflow: hidden;
     padding: 20px;
+    margin-top: 50px;
     padding-left: 0px;
     padding-bottom: 0px;
     text-align: left;
@@ -28,9 +29,8 @@
     color: white;
     line-height: 30px;
     width: 70%;
-    height: 50px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .new-mail:hover {
@@ -88,7 +88,7 @@ progress::-webkit-progress-value {
 @media (max-width: 980px) {
     .side-bar {
         margin-top: 0;
-        width: auto;
+        width: 100%;
         margin-right: 100px;
         height: 100px;
         flex-direction: row;
@@ -101,9 +101,11 @@ progress::-webkit-progress-value {
         display: none;
     }
     .new-mail {
-        font-size: 12px;
+        width: 10000px;
         margin: 5px;
-        overflow: hidden;
+        font-size: 15px;
+        height: unset;
+        padding: unset;
     }
     .view-scroll {
         padding: 0px;

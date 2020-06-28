@@ -10,7 +10,7 @@
 }
 
 .read {
-    background-color: rgb(246, 243, 243);
+    background-color: white;
 }
 
 .expand {
@@ -43,8 +43,18 @@
 
 @media (max-width: 980px) {
     .mail-middle {
-        width: 60%;
+        width: 30%;
         height: 20px;
         overflow: hidden;
+    }
+    .mail-right-side {
+        width: 50%;
+        font-size: small;
+    }
+    .expand {
+        font-size: 30px;
+    }
+    .mail-left-side {
+        font-size: 12px;
     }
 }

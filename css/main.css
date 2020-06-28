@@ -19,12 +19,8 @@ button {
 }
 
 * {
-    text-transform: capitalize;
-    font-family: georgia;
     box-sizing: border-box;
 }
-
-
 
 input {
     outline: none;

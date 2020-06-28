@@ -21,7 +21,7 @@ export default {
                 <router-link class="expand" :to="'/email/inbox/' + mail.id">⚃</router-link>
             </div>
         </div>    
-            <div v-if="isClicked">
+            <div @click="isClicked = !isClicked" v-if="isClicked">
                 <h3>{{mail.subject}}</h3>
                 <span>{{mail.from}} </span> <{{mail.fromMail}}> 
                 <p>{{mail.body}}</p>

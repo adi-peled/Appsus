@@ -1,13 +1,14 @@
 .home-page-sentence {
     font-size: 90px;
     width: 900px;
-    margin: 0;
+    margin: 50px;
     text-align: center;
 }
 
 .apsus {
     font-size: 50px;
-    border-bottom: white 3px solid;
+    align-self: start;
+    margin-left: 50px;
 }
 
 .home-page {
@@ -20,28 +21,65 @@
 
 .home-page-routes {
     width: 70%;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
 }
 
+.home-page-routes a:hover {
+    background-color: rgba(245, 245, 220);
+    color: rgb(100, 99, 99);
+    transition: background-color 1s, color 1s;
+}
+
 .home-page-routes img {
     width: 200px;
-    height: 200px
+    height: 200px;
+    padding: 10px;
+}
+
+.home-page-routes a p {
+    font-size: 25px;
+}
+
+.home-page-routes a {
+    background-color: rgba(245, 245, 220, 0.5);
+    width: 25%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
 }
 
 @media (max-width:650px) {
-    .home-page-routes {
-        flex-direction: column;
-    }
     .home-page-sentence {
-        font-size: 50px;
-        width: 750px;
-        margin: 20;
-        height: 100%;
+        font-size: 30px;
+        width: 300px;
+        margin: unset;
+        height: 200px;
     }
     .home-page {
         height: 100vh;
+    }
+    .apsus {
+        height: 70px;
+    }
+    .home-page-routes {
+        flex-direction: row;
+        width: 90%;
+    }
+    .home-page-routes img {
+        width: 80px;
+        height: 80px;
+    }
+    .home-page-routes a {
+        height: 50%;
+    }
+    .home-page-routes a p {
+        font-size: 15px;
     }
 }
