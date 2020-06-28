@@ -2,7 +2,8 @@
 @import './missEmail/email-main.css';
 @import './missKeep/keep-main.css';
 @import './home-page.css';
-html, body {
+html,
+body {
     background-image: url('../img/bgc6.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,6 +22,8 @@ button {
 * {
     box-sizing: border-box;
 }
+
+
 
 input {
     outline: none;
