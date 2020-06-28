@@ -1,100 +1,103 @@
-.home-page-sentence {
-    font-size: 90px;
-    width: 900px;
-    margin: 50px;
-    text-align: center;
-}
-
-.apsus {
-    font-size: 50px;
-    align-self: start;
-    margin-left: 50px;
-}
-
-.home-page {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.home-page-routes {
-    width: 70%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.home-page-routes a:hover {
-    background-color: rgba(245, 245, 220);
-    color: rgb(100, 99, 99);
-    transition: background-color 1s, color 1s;
-}
-
-.home-page-routes img {
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-}
-
-.home-page-routes a p {
-    font-size: 25px;
-}
-
-.home-page-routes a {
-    background-color: rgba(245, 245, 220, 0.5);
-    width: 25%;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-}
-
-.swal2-title {
-    font-size: 20px;
-    font-family: pragati;
-}
-
-@media (max-width:1000px) {
+    .home-page-sentence {
+        font-size: 90px;
+        width: 900px;
+        margin: 0;
+        text-align: center;
+    }
+    
+    .apsus {
+        font-size: 50px;
+        align-self: start;
+        margin-left: 50px;
+    }
+    
+    .home-page {
+        width: 100%;
+        height: 872px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .home-page-routes {
+        width: 80%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .home-page-routes a:hover {
+        background-color: rgba(245, 245, 220);
+        color: rgb(100, 99, 99);
+        transition: background-color 1s, color 1s;
+    }
+    
     .home-page-routes img {
-        transition: 0.7s;
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
+        padding: 10px;
     }
-    @media (max-width:650px) {
-        .home-page-sentence {
-            font-size: 30px;
-            width: 300px;
-            margin: unset;
-            height: 200px;
-        }
-        .home-page {
-            min-height: 100vh;
-        }
-        .apsus {
-            height: 70px;
-        }
-        .home-page-routes {
-            flex-direction: row;
-            width: 90%;
-        }
+    
+    .home-page-routes a p {
+        font-size: 25px;
+    }
+    
+    .home-page-routes a {
+        background-color: rgba(245, 245, 220, 0.5);
+        width: 25%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .swal2-title {
+        font-size: 20px;
+        font-family: pragati;
+    }
+    
+    @media (max-width:1000px) {
         .home-page-routes img {
-            width: 80px;
-            height: 80px;
+            transition: 0.7s;
+            width: 120px;
+            height: 120px;
         }
-        .home-page-routes a {
-            height: 50%;
-        }
-        .home-page-routes a p {
-            font-size: 15px;
+        @media (max-width:650px) {
+            .home-page-sentence {
+                font-size: 30px;
+                width: 300px;
+                margin: unset;
+                height: 200px;
+            }
+            .home-page {
+                min-height: 100vh;
+            }
+            .apsus {
+                height: 70px;
+            }
+            .home-page-routes {
+                flex-direction: row;
+                width: 90%;
+            }
+            .home-page-routes img {
+                width: 80px;
+                height: 80px;
+            }
+            .home-page-routes a {
+                height: 50%;
+            }
+            .home-page-routes a p {
+                font-size: 15px;
+            }
         }
     }
+    
     @font-face {
         font-family: pragati;
-        src: url(../fonts/PragatiNarrow-Regular.ttf)
+        src: url(../fonts/PragatiNarrow-Regular.ttf);
     }

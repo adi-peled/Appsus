@@ -7,11 +7,11 @@
     src: url(../fonts/PragatiNarrow-Regular.ttf)
 }
 
-html, body {
+html,
+body {
     background-image: url('../img/bgc6.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0;
 }
 
 button {
