@@ -1,12 +1,29 @@
 .todos-container {
+    display: flex;
     margin: 0;
     list-style-type: none;
-    padding: 0;
-    text-align: center;
+    padding: 25px;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10%;
+    border: white 1px solid;
+   
 }
 
 .done {
     text-decoration: line-through;
+}
+
+.todo-creator {
+    display: flex;
+    justify-content: center;
+}
+
+.li-in-todo-creator {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
 }
 
 .pinned img {
@@ -14,6 +31,18 @@
     width: 35px;
 }
 
+.input-new button {
+    height: 30px;
+    width: 39px;
+}
+
 .todos-container li {
     cursor: pointer;
+    padding-bottom: 15px;
+}
+
+.todos-container div {}
+
+.input-new ul li {
+    margin-bottom: 20px;
 }

@@ -1,18 +1,34 @@
 .btns-filter {
   display: flex;
   justify-content: center;
-padding: 15px;
+  padding: 15px;
+  height: 80px;
+}
 
+.btn-filter:hover {
+  height: 35px;
+}
 
+.btn-filter {
+  transition: 0.3s;
+  width: 110px;
+  height: 20px;
 }
 
 .title-filter {
-text-align: center;
-margin: 0em; 
-padding: 15px;
+  text-align: center;
+  margin: 0em;
+  padding: 15px;
 }
 
-.note-filter .search{
+.note-filter .search {
   font-size: 22px;
 }
 
+@media (max-width:360px) {
+  .btns-filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}

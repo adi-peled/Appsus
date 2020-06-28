@@ -25,6 +25,7 @@ input::placeholder {
 .btns-note {
     display: flex;
 }
+
 .btns-note input {
     padding: 0;
     border: 0;
@@ -39,6 +40,10 @@ input::placeholder {
     text-align: center;
     align-items: center;
     justify-content: space-around;
+    border-radius: 10%;
+    border: white 1px solid;
+    padding: 15px;
+   
 }
 
 

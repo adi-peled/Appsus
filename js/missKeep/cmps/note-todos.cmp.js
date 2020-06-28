@@ -5,25 +5,29 @@ export default {
   props: ['info', 'idx', 'noteToEdit'],
   name: 'note-todos',
   template: `
+ 
   <section class="note-todos">
 
 
-  <ul v-if="info" class="todos-container container" :style="{backgroundColor:bgc}">
+  <ul v-if="info" class="    todos-container " :style="{backgroundColor:bgc}">
 
-  <li v-for="(todo,idx) in  info.todos" :class="{done:info.todos[idx].isDone}" @click="done(idx)">
-      {{todo.txt}}
-  </li>
-  <div class="btns-note">
-      <div @click="updatePinned" class="pinned">
-          <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
-          <span v-else> <img src="./img/not-pinned-not.png"> </span>
+      <li v-for="(todo,idx) in  info.todos" :class="{done:info.todos[idx].isDone}" @click="done(idx)">
+          {{todo.txt}}
+      </li>
+      <div class="btns-note">
+          <div @click="updatePinned" class="pinned">
+              <span v-if="info.isPinned"> <img src="./img/pinned-not.png"> </span>
+              <span v-else> <img src="./img/not-pinned-not.png"> </span>
+          </div>
+          <button class="btn-edit" @click="editNote"> edit </button>
+          <button class="btn-delete" @click="deleteNote"> delete </button>
+          <div class="color-container">
+              <img src="./img/color.png">
+              <input class="input-color" v-model="bgc" type="color"> </input>
+          </div>
       </div>
-      <button class="btn-edit" @click="editNote"> edit </button>
-      <button class="btn-delete" @click="deleteNote"> delete </button>
-      <input v-model="bgc" type="color"> </input>
-  </div>
-</ul>
-  <div v-else  class="input-new">
+  </ul>
+  <div v-else class="input-new">
 
       <ul v-if="noteToEdit&&onEdit">
 
@@ -32,12 +36,14 @@ export default {
           </li>
           <button @click="updateNote"> save </button>
       </ul>
-      <ul @change="setNote" v-else>
-          <li v-for="(num,idx) in listLength">
-              <input v-model="inf.todos[idx].txt" type="text"   placeholder="enter text"    />
-          </li>
-          <button v-if="checkListLength" @click="updateLength(1,idx)"> + </button>
-          <button v-if="checkListLength" @click="updateLength(-1,idx)"> - </button>
+      <ul  class="todo-creator"  @change="setNote" v-else>
+            <div class="li-in-todo-creator">
+              <li v-for="(num,idx) in listLength">
+                  <input v-model="inf.todos[idx].txt" type="text" placeholder="enter text" />
+              </li>
+              </div>
+              <button v-if="checkListLength" @click="updateLength(1,idx)"> + </button>
+              <button v-if="checkListLength" @click="updateLength(-1,idx)"> - </button>
       </ul>
   </div>
 </section>

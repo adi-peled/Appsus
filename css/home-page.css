@@ -3,7 +3,6 @@
     width: 900px;
     margin: 0;
     text-align: center;
-    /* height: 100%; */
 }
 
 .apsus {
@@ -21,7 +20,6 @@
 
 .home-page-routes {
     width: 70%;
-    /* height: 250px; */
     display: flex;
     justify-content: center;
     align-items: center;

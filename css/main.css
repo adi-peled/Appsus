@@ -21,7 +21,11 @@ button {
 * {
     text-transform: capitalize;
     font-family: georgia;
-    overflow-x: hidden;
     box-sizing: border-box;
-    overflow: hidden;
+}
+
+
+
+input {
+    outline: none;
 }

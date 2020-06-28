@@ -2,7 +2,7 @@ export default {
   template: `
           <section class="note-filter">
               <div  class="btns-filter" >
-              <button class="btn-filter" @click="filter('')"  > all list   </button> 
+              <button class="btn-filter" @click="filter('')"  > all notes   </button> 
               <button class="btn-filter" @click="filter('noteTodos')"  > only lists   </button> 
               <button class="btn-filter"  @click="filter('noteText')" > only text   </button> 
               <button class="btn-filter"  @click="filter('noteImg')" > only images   </button> 

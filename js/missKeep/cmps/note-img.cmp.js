@@ -14,7 +14,11 @@ export default {
             </div>
             <button class="btn-edit" @click="editNote"> edit </button>
             <button class="btn-delete" @click="deleteNote"> delete </button>
-            <input v-model="bgc" type="color"> </input>
+
+            <div class="color-container">
+               <img src="./img/color.png">
+               <input class="input-color" v-model="bgc" type="color"> </input>
+            </div>
         </div>
     </div>
     <div v-else class="input-new">
