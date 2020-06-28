@@ -45,6 +45,7 @@ textarea,
 
 .new-form textarea {
     border: 2px white solid;
+    height: 366px;
 }
 
 .form-section {

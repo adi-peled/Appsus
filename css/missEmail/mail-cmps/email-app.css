@@ -7,7 +7,6 @@
 .middle {
     display: flex;
     overflow: hidden;
-    align-items: baseline;
 }
 
 .view-scroll {
