@@ -6,6 +6,11 @@
 @import './cmps/note-todos.css';
 @import './cmps/note-img.css';
 @import './cmps/note-todos.css';
+@font-face {
+    font-family: pragati;
+    src: url(../fonts/PragatiNarrow-Regular.ttf)
+}
+
 button:hover {
     cursor: pointer;
     background-color: lightgrey;
@@ -46,7 +51,7 @@ input::placeholder {
     width: 250px;
 }
 
-
-.note-app-container{
+.note-app-container {
     font-size: 15px;
+    font-family: pragati;
 }
