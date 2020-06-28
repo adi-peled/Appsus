@@ -2,22 +2,34 @@
     width: 80%;
     height: 80%;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-.sub {}
+.reading .star {
+    font-size: 35px;
+}
+
+.trash-can {
+    font-size: 25px;
+}
+
+.sub {
+    width: 40%;
+}
 
 .from-mail {
-    border: 1px white solid;
+    width: 40%;
 }
 
 .sent-at {
-    border: 1px white solid;
+    width: 40%;
 }
 
 .from-name {
-    border: 1px white solid;
+    width: 40%;
 }
 
 .mail-body {
-    border: 1px white solid;
+    width: 70%;
 }

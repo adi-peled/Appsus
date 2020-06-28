@@ -57,10 +57,13 @@ export default {
         onDeleteMail(id) {
             emailsService.deleteMail(id)
             this.$emit("emailDeleted");
+            eventBus.$emit('alertMsg', 'eMail as been deleted')
         },
         starClicked() {
             emailsService.newStarredList(this.mail.id)
             this.$emit("emailDeleted");
+            eventBus.$emit('alertMsg', 'Saving')
+
         }
     }
 };

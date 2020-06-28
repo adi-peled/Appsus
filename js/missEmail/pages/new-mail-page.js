@@ -1,5 +1,5 @@
 import { emailsService } from '../services/emails-service.js'
-
+import { eventBus } from '../../main-services/eventBus.js'
 export default {
     name: 'newMail',
     template: `
@@ -35,6 +35,11 @@ export default {
     methods: {
         onSendMail(name, email, sub, msg, isDraft) {
             emailsService.sendNewMail(name, email, sub, msg, isDraft);
+            if (isDraft) {
+                eventBus.$emit('alertMsg', 'Saving to Drafts')
+            } else {
+                eventBus.$emit('alertMsg', 'Sent')
+            }
             this.name = '';
             this.email = '';
             this.sub = '';
